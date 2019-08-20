@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <ui:insert name = "header" >
+                <ui:include src = "indxHead.xhtml" />
+            </ui:insert> 
+
+            <p:link outcome="adminShowDoctor" value="Show Doctor"/>
+
+            <h:form>
+                <h1>Doctor Registration Form</h1>
+                <p:growl id="growl" showDetail="true" sticky="true" />
+                <table>
+                    <tr>
+                        <td>
+                            Name: 
+                        </td>
+                        <td><p:inputText type="text" value="#{doctorBean.name}"/> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email: 
+                        </td>
+                        <td><p:inputText type="email" value="#{doctorBean.email}"/> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Contact Number: 
+                        </td>
+                        <td><p:inputText type="number" value="#{doctorBean.phone}"/> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Gender: 
+                        </td>
+                        <td>
+                            <p:selectOneRadio id="console" value="#{doctorBean.gender}" >
+                                <f:selectItem itemLabel="Male" itemValue="Male" />
+                                <f:selectItem itemLabel="Female" itemValue="Female" />
+                                <f:selectItem itemLabel="Other" itemValue="Other" />
+                            </p:selectOneRadio>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Speciality:
+                        </td>
+                        <td>
+                            <p:selectOneMenu value="#{doctorBean.specialist}">
+                                <f:selectItem itemLabel="GASTROENTEROLOGY " itemValue="GASTROENTEROLOGY " />
+                                <f:selectItem itemLabel="SURGERY" itemValue="SURGERY" />
+                                <f:selectItem itemLabel="PSYCHIATRY" itemValue="PSYCHIATRY" />
+                                <f:selectItem itemLabel="MEDICINE" itemValue="MEDICINE" /> 
+                                <f:selectItem itemLabel="DENTISTRY" itemValue="DENTISTRY" />
+                                <f:selectItem itemLabel="ANAESTHESIOLOGY" itemValue="ANAESTHESIOLOGY" />
+                            </p:selectOneMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           Adout Doctor:
+                        </td>
+                        <td>
+                            <p:inputTextarea rows="4" cols="20" counter="display" maxlength="100" counterTemplate="{0} characters remaining." autoResize="false" value="#{doctorBean.msg}"/>
+                       <h:outputText id="display" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><p:commandButton value="submit" styleClass="btn-success" action="#{doctorBean.editDoctor(doctorBean)}" update="growl"/></td>
+                    </tr>
+                </table>
+
+            </h:form>
+
+
+        </div>
+        admin  page
+    </h:body>
+</html>
+

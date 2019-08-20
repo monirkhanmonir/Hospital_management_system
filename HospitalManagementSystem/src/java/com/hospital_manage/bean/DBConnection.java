@@ -1,5 +1,5 @@
 
-package com;
+package com.hospital_manage.bean;
 
 
 import java.sql.Connection;

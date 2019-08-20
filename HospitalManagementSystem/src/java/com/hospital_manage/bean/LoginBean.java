@@ -1,5 +1,5 @@
 
-package com;
+package com.hospital_manage.bean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -35,7 +35,7 @@ public class LoginBean {
            return "adminPanel.xhtml?faces-redirect=true";
         }else{
        
-         return "gallary.xhtml?faces-redirect=true";
+         return "login.xhtml?faces-redirect=true";
         }
     }
     
