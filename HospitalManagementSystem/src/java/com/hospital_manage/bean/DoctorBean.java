@@ -2,7 +2,6 @@ package com.hospital_manage.bean;
 
 
 import com.hospital_manage.util.NewHibernateUtil;
-import java.io.Serializable;
 
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -131,7 +130,7 @@ public class DoctorBean {
     }
     
     
-    
+   
     
     
     
@@ -153,7 +152,9 @@ public class DoctorBean {
     
     
     
-    public List<DoctorBean> findDoctor(){
+    
+    
+    public List<DoctorBean> findDoctor(DoctorBean specialist){
        
     Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
@@ -166,6 +167,7 @@ public class DoctorBean {
         } catch (Exception e) {
             ts.rollback();
         }finally{
+            
         session.flush();
         }  
         
@@ -191,16 +193,29 @@ public class DoctorBean {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Successful", "Update Succesfull"));
     
-       return null;
-    
-      
+       return null;  
     }
     
     
     
+    public String deletDoctor(DoctorBean doctor){
+    Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction ts = null;
+        try {
+            ts = session.beginTransaction();
+            session.delete(doctor);
+            ts.commit();
+        } catch (Exception e) {
+             ts.rollback();
+        }finally{
+         session.flush();
+        }  
+        
+       
     
-
-    
+       return null;  
+    }
+  
     
 
 }

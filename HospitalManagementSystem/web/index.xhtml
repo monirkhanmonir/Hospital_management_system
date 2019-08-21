@@ -85,15 +85,18 @@
                                         <table>
                                             <tr>
                                                 <td colspan="4">
-                                                    <p:selectOneMenu id="console" value="" style="width:400px" >
+                                                    <p:selectOneMenu id="console" value="#{doctorBean.specialist}" style="width:400px" >
                                                         <f:selectItem itemLabel="Select One" itemValue="" />
-                                                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                                        <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                                        <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                                                        <f:selectItem itemLabel="GASTROENTEROLOGY" itemValue="GASTROENTEROLOGY" />
+                                                        <f:selectItem itemLabel="SURGERY" itemValue="SURGERY" />
+                                                        <f:selectItem itemLabel="PSYCHIATRY" itemValue="PSYCHIATRY" />
+                                                        <f:selectItem itemLabel="MEDICINE" itemValue="MEDICINE" />
+                                                        <f:selectItem itemLabel="DENTISTRY" itemValue="DENTISTRY" />
+                                                        <f:selectItem itemLabel="ANAESTHESIOLOGY" itemValue="ANAESTHESIOLOGY" />
                                                     </p:selectOneMenu>
                                                 </td>
                                                 <td>
-                                                    <p:commandButton value="Search"/>
+                                                    <p:commandButton value="Search" action="#{doctorBean.findDoctor(doctorBean.specialist)}"/>
                                                 </td>
                                             </tr>
                                         </table>
