@@ -2,6 +2,7 @@ package com.hospital_manage.bean;
 
 
 import com.hospital_manage.util.NewHibernateUtil;
+import java.io.Serializable;
 
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -9,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -145,8 +147,7 @@ public class DoctorBean {
         this.setMsg(doctor.getMsg());
         this.setName(doctor.getName());
         this.setPhone(doctor.getPhone());
-        this.setSpecialist(doctor.getSpecialist());
-        
+        this.setSpecialist(doctor.getSpecialist());        
     return "editDoctor";
     }
     
@@ -169,6 +170,30 @@ public class DoctorBean {
         }  
         
     return null;
+    }
+    
+    
+    
+    
+    public String updateDoctor(DoctorBean doctor){
+    Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction ts = null;
+        try {
+            ts = session.beginTransaction();
+            session.update(doctor);
+            ts.commit();
+        } catch (Exception e) {
+             ts.rollback();
+        }finally{
+         session.flush();
+        }
+        
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Successful", "Update Succesfull"));
+    
+       return null;
+    
+      
     }
     
     
