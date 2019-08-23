@@ -96,7 +96,8 @@
                                                     </p:selectOneMenu>
                                                 </td>
                                                 <td>
-                                                    <p:commandButton value="Search" action="#{doctorBean.findDoctor(doctorBean.specialist)}"/>
+                                                    <p:commandButton value="Search" action="#{doctorBean.findDoctor()}"/>
+                                                    <p:link outcome="userViewDoctor" value="show Doctor"/>
                                                 </td>
                                             </tr>
                                         </table>

@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+
+    </h:head>
+    <h:body>
+        <div class="container">
+            <ui:insert name = "header" >
+                <ui:include src = "indxHead.xhtml" />
+            </ui:insert>
+
+            <div class="row">
+                <div class="offset-md-3 col-md-6">
+                    <h:form>
+                        <p:growl id="growl" showDetail="true" sticky="true" />
+                        <div class="card">
+                            <div class="card-header">
+
+                                <div class="row">
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="dr-name">Doctor name</label>
+
+                                        <p:inputText styleClass="form-control" readonly="true" value="#{apointment.drName}"/>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="dr-phone">Phone:</label>
+                                        <p:inputText styleClass="form-control" readonly="true" value="#{apointment.drPhone}" id="dr-phone"/>
+                                    </div>
+
+                                    <p:inputText  value="dr.id" type="hidden"/>
+                                </div>
+
+
+                            </div>
+                            <div class="card-body">
+                                <h3>Patient details Information: </h3>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="fName">First name</label>
+
+                                        <p:inputText styleClass="form-control" id="fName" value="#{apointment.firstName}"/>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lName">Last name</label>
+                                        <p:inputText styleClass="form-control" id="lName" value="#{apointment.lastName}"/>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="email">Email</label>
+                                        <p:inputText styleClass="form-control" id="email" value="#{apointment.email}"/>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="phone">Phone: </label>
+                                        <p:spinner style="form-control" value="#{apointment.phone}" styleClass="form-contol"/>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="phone">Date: </label>
+                                        <p:calendar styleClass="form-control" pattern="dd/MM/yyyy"/>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="gender">Gender: </label>
+                                        <p:selectOneRadio id="gender" styleClass="form-control" value="#{apointment.gender}">
+                                            <f:selectItem itemLabel="Male" itemValue="Male" />
+                                            <f:selectItem itemLabel="Female" itemValue="Female" />
+                                            <f:selectItem itemLabel="Other" itemValue="Other" />
+                                        </p:selectOneRadio>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="address">Address: </label>
+                                        <p:inputTextarea styleClass="form-control" value="#{apointment.address}"/>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12 mb-3">
+                                        <p:commandButton value="Submit" styleClass="btn-success form-control" action="#{apointment.saveApointment(apointment)}" update="growl"/>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

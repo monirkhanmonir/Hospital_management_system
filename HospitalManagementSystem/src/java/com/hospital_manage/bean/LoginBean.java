@@ -29,14 +29,28 @@ public class LoginBean {
     
     
     public String checkUser(){
-     
-          String result = null;
-        if(user.equals("admin")&&psd.equals("admin")){
-           return "adminPanel.xhtml?faces-redirect=true";
+     String result = null;
+        if(user.equals("admin")){
+            if(user.equals("admin")&&psd.equals("admin")){
+           result= "adminPanel.xhtml?faces-redirect=true";
         }else{
        
-         return "login.xhtml?faces-redirect=true";
+         result= "login.xhtml?faces-redirect=true";
         }
+        
+        }else if(user.equals("doctor")){
+        
+            if(user.equals("doctor")&&psd.equals("doctor")){
+           result= "doctorPanel.xhtml?faces-redirect=true";
+        }else{
+       
+         result= "login.xhtml?faces-redirect=true";
+        }
+            
+            
+        }
+          
+      return result;  
     }
     
     

@@ -41,6 +41,8 @@ public class DoctorBean {
     private String specialist;  
 
     
+     
+     
     
     public String getName() {
         return name;
@@ -154,23 +156,22 @@ public class DoctorBean {
     
     
     
-    public List<DoctorBean> findDoctor(DoctorBean specialist){
+    public String  findDoctor(){
        
     Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
         try {
             ts = session.beginTransaction();
-            Query query = session.createQuery("select* from doctors where Specialist='"+specialist+"'");
-           List<DoctorBean> list= query.list();
+            Query query = session.createQuery("FROM DoctorBean");
+           
            ts.commit();
-           return list;
+          return"userViewDoctor";
         } catch (Exception e) {
             ts.rollback();
         }finally{
             
         session.flush();
-        }  
-        
+        }         
     return null;
     }
     
@@ -215,6 +216,8 @@ public class DoctorBean {
     
        return null;  
     }
+
+    
   
     
 

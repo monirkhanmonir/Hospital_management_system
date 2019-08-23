@@ -4,15 +4,15 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
         <style>
-            .color{
-                width: 100%;
-                height: 200px;
-                background: blue;
+            .card-margin{
+                margin: 25px 0px;
+
             }
         </style>
     </h:head>
@@ -27,51 +27,45 @@
 
             <div class="row">
 
-                <c:forEach var="doctor" >              
-                    <table>
-                    <div class="col-md-4 color">
-                        <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="..."/>
-                                <div class="card-body">
-                                    <tr>
-                                        <td>Name:</td>
-                                        <td><p:outputLabel value="#{doctor.name}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email:</td>
-                                        <td><p:outputLabel value="#{doctor.email}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gender:</td>
-                                        <td><p:outputLabel value="#{doctor.gender}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Specialist</td>
-                                        <td><p:outputLabel value="#{doctor.specialist}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Information: </td>
-                                        <td><p:outputLabel value="#{doctor.msg}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <h:form>
-                                                <p:commandButton value="Get Apointment" styleClass="form-control btn-success"/>
-                                            </h:form>
-                                        </td>
-                                    </tr>
-                                </div>
-                        </div>
+                <c:forEach var="doctor" items="#{doctorBean.showDoctor()}">              
+
+                    <div class="col-md-4">
+                        <p:panelGrid columns="2">
+                            <f:facet name="header">
+                                <h1>Head image</h1>
+                            </f:facet>
+
+                            <h:outputText value="Name:" />
+                            <h:outputText value="#{doctor.name}" />
+
+                            <h:outputText value="Email: " />
+                            <h:outputText value="#{doctor.email}" />
+
+                            <h:outputText value="Gender: " />
+                            <h:outputText value="#{doctor.gender}" />
+
+                            <h:outputText value="Phone: " />
+                            <h:outputText value="#{doctor.phone}" />
+                            
+                            <h:outputText value="Spachalist:  " />
+                            <h:outputText value="#{doctor.specialist}" />
+                            
+                            <h:outputText value="Massage:  " />
+                            <h:outputText value="#{doctor.msg}" />
+                            <h:form> <p:commandButton value="Get Apointment" action="#{apointment.getApointment(doctor.name, doctor.phone)}"/></h:form>
+                        </p:panelGrid>
                     </div>
-                        </table>
+                    <br>
+
+                    </br>
+
                 </c:forEach>
 
 
             </div>
         </div>
 
-        
+
     </h:body>
 </html>
 
