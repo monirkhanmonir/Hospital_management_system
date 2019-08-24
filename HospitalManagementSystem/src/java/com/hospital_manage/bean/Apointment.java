@@ -1,7 +1,8 @@
 package com.hospital_manage.bean;
 
 import com.hospital_manage.util.NewHibernateUtil;
-import java.sql.Date;
+import java.util.Date;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.CustomScoped;
 import javax.faces.bean.ManagedBean;
@@ -50,13 +51,12 @@ public class Apointment {
     @Column(name = "gender")
     private String gender;
 
-    
-
     @Column(name = "address")
     private String address;
 
-    
-    
+    @Column(name = "date")
+    private Date date;
+
     public int getId() {
         return id;
     }
@@ -88,10 +88,6 @@ public class Apointment {
     public void setdID(int dID) {
         this.dID = dID;
     }
-    
-   
-
-   
 
     public String getEmail() {
         return email;
@@ -124,7 +120,7 @@ public class Apointment {
     public void setAddress(String address) {
         this.address = address;
     }
-    
+
     public String getFirstName() {
         return firstName;
     }
@@ -140,14 +136,14 @@ public class Apointment {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     public String getApointment(String drName, int drPhone) {
 
@@ -174,16 +170,28 @@ public class Apointment {
             session.flush();
         }
         
-        
+
         FacesContext context = FacesContext.getCurrentInstance();
-         
-        context.addMessage(null, new FacesMessage("Apointment request Successful",  "Patient Name: " + firstName+" "+lastName
-                +"<br> Patient Status: null. <br> Apointment Id: "+id) );
+
+        context.addMessage(null, new FacesMessage("Apointment request Successful", "Patient Name: " + firstName + " " + lastName
+                + "<br> Patient Status: null. <br> Apointment Id: " + id));
+        
+        clearApointment();
         return null;
     }
 
-    
+    public void clearApointment() {
+        this.setAddress("");
+        this.setDrName("");
+        this.setDrPhone(0);
+        this.setEmail("");
+        this.setFirstName("");
+        this.setGender("");
+        this.setId(0);
+        this.setLastName("");
+        this.setPhone(0);
+        this.setdID(0);
 
-    
+    }
 
 }

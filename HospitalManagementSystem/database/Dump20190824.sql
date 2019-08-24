@@ -25,19 +25,19 @@ DROP TABLE IF EXISTS `apointment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `apointment` (
-  `id` int(6) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `drName` varchar(45) DEFAULT NULL,
   `drPhone` int(12) DEFAULT NULL,
-  `dID` int(6) DEFAULT NULL,
+  `dID` int(12) DEFAULT NULL,
   `fName` varchar(45) DEFAULT NULL,
   `lName` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `phone` int(12) DEFAULT NULL,
   `gender` varchar(45) DEFAULT NULL,
-  `date` date DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
+  `date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `apointment` (
 
 LOCK TABLES `apointment` WRITE;
 /*!40000 ALTER TABLE `apointment` DISABLE KEYS */;
-INSERT INTO `apointment` VALUES (0,NULL,0,0,'habid','ahmed','habib@gmail.com',9877,'Male',NULL,'dhaka'),(1,'Robiul islam',3456787,0,'monir','khan','monir@gmail.com',7654,'Female',NULL,'kushtia'),(2,'Robiul islam',3456787,0,'monir','khan','monir@gmail.com',7654,'Female',NULL,'kushtia'),(3,NULL,0,0,'habid','ahmed','habib@gmail.com',9877,'Male',NULL,'dhaka');
+INSERT INTO `apointment` VALUES (1,'Monir',193100000,0,'salauddin','ahmed','salauddin@gmail.com',975420,'Male','dhaka',NULL),(2,'Dr. Robiul ISlam',987,0,'jitu ','ahmed','jitu@gmail.com',35867,'Male','dghfnhgfngn',NULL),(3,NULL,0,0,'gfgh','fhtgh','thtrrts5',360,'Female','fhtgh','2019-08-27'),(4,'Dr. salauddin',123456,0,'Habib','Ahmed','habib',89656450,'Male','awrewgy4ryh','2019-08-29'),(5,'Dr. salauddin',123456,0,'jitu','ahmed','jitu@gmail.com',7657645,'Male','asghgjy','2019-08-28'),(6,'Dr. salauddin',123456,0,'Habib','ahmed','jitu@gmail.com',534430,'Female','3rereg','2019-08-21');
 /*!40000 ALTER TABLE `apointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,9 +65,10 @@ CREATE TABLE `doctors` (
   `gender` varchar(45) DEFAULT NULL,
   `Specialist` varchar(45) DEFAULT NULL,
   `msg` varchar(100) DEFAULT NULL,
+  `psd` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +77,7 @@ CREATE TABLE `doctors` (
 
 LOCK TABLES `doctors` WRITE;
 /*!40000 ALTER TABLE `doctors` DISABLE KEYS */;
-INSERT INTO `doctors` VALUES (4,'hasanul korim','hasan@gmail.com',1324567,'Male','SURGERY','sdsfvgfbhngbvc'),(6,'Robiul islam','robiul@gmail.com',3456787,'Male','ANAESTHESIOLOGY','sdfgbhgngbfvdcsx'),(7,'Dr. Sanjida sorowar','sanjida@gmail.com',23456,'Female','ANAESTHESIOLOGY','some information');
+INSERT INTO `doctors` VALUES (1,'Monir','monir@gmail.com',193100000,'Male','MEDICINE','sdyewyiduxkbjewdedewdx',NULL),(2,'Dr. salauddin','salauddin@gmail.com',123456,'Male','SURGERY','Very lazy man',NULL),(3,'Dr. Robiul ISlam','robiul@gmail.com',987,'Male','MEDICINE','sffh gjhgm',NULL),(4,'Faruk','faruk',2443564,'Male','SURGERY','fghfhbthtrhgrtgh',NULL),(5,'rabbi','rabbi@gmail.com',97452,'Male','SURGERY','thjtrhtrhytr','rabbi');
 /*!40000 ALTER TABLE `doctors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,4 +98,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-24  2:00:30
+-- Dump completed on 2019-08-24 14:16:34

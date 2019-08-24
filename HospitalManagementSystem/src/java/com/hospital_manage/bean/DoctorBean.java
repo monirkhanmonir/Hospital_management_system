@@ -39,7 +39,9 @@ public class DoctorBean {
     
     @Column(name = "Specialist")
     private String specialist;  
-
+    
+    @Column(name = "psd")
+    private String psd;
     
      
      
@@ -105,7 +107,7 @@ public class DoctorBean {
         }finally{
          session.flush();
         }
-        
+        clear();
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Successful", "Insert Succesfull"));
     
@@ -190,7 +192,7 @@ public class DoctorBean {
         }finally{
          session.flush();
         }
-        
+        clear();
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Successful", "Update Succesfull"));
     
@@ -215,6 +217,24 @@ public class DoctorBean {
        
     
        return null;  
+    }
+    
+    
+    public void clear(){
+    this.setEmail("");
+    this.setGender("");
+    this.setMsg("");
+    this.setName("");
+    this.setPhone(0);
+    this.setSpecialist("");
+    }
+
+    public String getPsd() {
+        return psd;
+    }
+
+    public void setPsd(String psd) {
+        this.psd = psd;
     }
 
     
