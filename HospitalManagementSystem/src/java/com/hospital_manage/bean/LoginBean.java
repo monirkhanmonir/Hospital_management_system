@@ -71,7 +71,7 @@ public class LoginBean {
         Transaction ts = null;
         try {
           ts=  session.beginTransaction();
-            Query q= session.createQuery("FROM LoginBean where email='"+loginBean.getUser()+"'");
+            Query q= session.createQuery("FROM LoginBean where email=:email");
             List<LoginBean> list= q.list();
             
             for(LoginBean a: list){

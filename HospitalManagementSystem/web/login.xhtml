@@ -44,7 +44,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">@</div>
                                     </div>
-                                    <p:inputText type="text" placeholder="Input User Name" styleClass="form-control" value="#{loginBean.user}"/>
+                                    <p:inputText type="text" placeholder="Input email Address" styleClass="form-control" value="#{doctorBean.email}"/>
                                     
                                 </div>
 
@@ -53,9 +53,9 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fas fa-user"></i></div>
                                     </div>
-                                    <p:inputText type="password" placeholder="Input Password" styleClass="form-control" value="#{loginBean.psd}"/>
+                                    <p:inputText type="password" placeholder="Input Password" styleClass="form-control" value="#{doctorBean.psd}"/>
                                 </div>
-                                <p:commandButton value="Login" styleClass="form-control btn-success" action="#{loginBean.checkUser()}"/>
+                                <p:commandButton value="Login" styleClass="form-control btn-success" action="#{doctorBean.checkUser1(doctorBean.email)}"/>
                             </h:form>
 
                         </div>

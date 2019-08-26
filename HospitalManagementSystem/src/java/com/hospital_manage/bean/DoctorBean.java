@@ -94,6 +94,14 @@ public class DoctorBean {
         this.specialist = Specialist;
     }
     
+    public String getPsd() {
+        return psd;
+    }
+
+    public void setPsd(String psd) {
+        this.psd = psd;
+    }
+    
     
     public String saveDoctor(DoctorBean doctor){
     Session session = NewHibernateUtil.getSessionFactory().openSession();
@@ -229,13 +237,33 @@ public class DoctorBean {
     this.setSpecialist("");
     }
 
-    public String getPsd() {
-        return psd;
+    
+    public String checkUser1(String  email){
+     String result=null;
+       Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction ts = null;
+        try {
+          ts=  session.beginTransaction();
+            Query q= session.createQuery("FROM DoctorBean where email=:email");
+            q.setString("email", email);
+            List<DoctorBean> list= q.list();
+            
+            for(DoctorBean a: list){
+            if(email.equals(a.getEmail())&&psd.equals(a.getPsd())){
+                
+            result= "doctorPanel.xhtml?faces-redirect=true";
+            }else{
+                result= "gallary.xhtml?faces-redirect=true";
+            }
+            }
+           
+        } catch (Exception e) {
+        }
+          
+      return result;  
     }
-
-    public void setPsd(String psd) {
-        this.psd = psd;
-    }
+    
+    
 
     
   

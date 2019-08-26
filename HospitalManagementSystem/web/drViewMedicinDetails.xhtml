@@ -28,7 +28,7 @@
                         <p:panel id="basic" header="Patient Personal Information"  style="margin-bottom:20px">
 
                             <p:panelGrid columns="4" styleClass="border:none;">
-
+                                
 
                                 <h:outputText value="Name:" />
                                 <h:outputText value="Kobe Bryant" />
@@ -47,33 +47,32 @@
                         <p:panel id="basic" header="Medicien Details"  style="margin-bottom:20px">
 
                             <div class="row">
-                                 <p:commandButton value="Change Medicin" styleClass="form-control offset-md-9"/>
                                 <div class="offset-md-3 col-md-6">
-                                    <div class="row">
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass="col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass="col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-
-
-
-                                    </div>
-
-                                    
+                                    <p:panelGrid columns="2">
+                                        <p:outputLabel value="Medicine Name"/>
+                                        <p:outputLabel value="Rules"/>
+                                        <p:inputText></p:inputText>
+                                         <p:inputMask  mask="9-9-9"/>
+                                         <p:inputText></p:inputText>
+                                         <p:inputMask  mask="9-9-9"/>
+                                         <p:inputText></p:inputText>
+                                         <p:inputMask  mask="9-9-9"/>
+                                         <p:inputText></p:inputText>
+                                         <p:inputMask  mask="9-9-9"/>
+                                         <p:inputText></p:inputText>
+                                         <p:inputMask  mask="9-9-9"/>
+                                         <p:inputText></p:inputText>
+                                         <p:inputMask  mask="9-9-9"/>
+                                         <p:inputText></p:inputText>
+                                         <p:inputMask  mask="9-9-9"/>
+                                         <p:inputText></p:inputText>
+                                         <p:inputMask  mask="9-9-9"/>
+                                         <p:inputText></p:inputText>
+                                         <p:inputMask  mask="9-9-9"/>
+                                         <p:outputLabel></p:outputLabel>
+                                         <p:commandButton value="Save" styleClass="form-control"/>
+                                    </p:panelGrid>
                                    
-
-
-
                                 </div>
                             </div>
 
