@@ -31,16 +31,19 @@
 
 
                                 <h:outputText value="Name:" />
-                                <h:outputText value="Kobe Bryant" />
+                                <h:outputText value="#{apointment.firstName}" />
 
-                                <h:outputText value="Team:" />
-                                <h:outputText value="Los Angeles Lakers" />
+                                <h:outputText value="Email: " />
+                                <h:outputText value="#{apointment.email}" />
 
-                                <h:outputText value="Position:" />
-                                <h:outputText value="Shooting Guard" />
+                                <h:outputText value="Phone: " />
+                                <h:outputText value="#{apointment.phone}" />
 
-                                <h:outputText value="Number:" />
-                                <h:outputText value="24" />
+                                <h:outputText value="Gender: " />
+                                <h:outputText value="#{apointment.gender}" />
+                                
+                                <h:outputText value="Date:  " />
+                                <h:outputText value="#{apointment.date}" />
                             </p:panelGrid>
 
                         </p:panel>

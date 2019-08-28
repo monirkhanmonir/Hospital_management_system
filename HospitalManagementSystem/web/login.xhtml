@@ -55,7 +55,7 @@
                                     </div>
                                     <p:inputText type="password" placeholder="Input Password" styleClass="form-control" value="#{doctorBean.psd}"/>
                                 </div>
-                                <p:commandButton value="Login" styleClass="form-control btn-success" action="#{doctorBean.checkUser1(doctorBean.email)}"/>
+                                <p:commandButton value="Login" styleClass="form-control btn-success" action="#{doctorBean.checkUser1(doctorBean.email,doctorBean.psd )}"/>
                             </h:form>
 
                         </div>

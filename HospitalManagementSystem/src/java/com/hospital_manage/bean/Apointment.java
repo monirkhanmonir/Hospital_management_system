@@ -2,6 +2,7 @@ package com.hospital_manage.bean;
 
 import com.hospital_manage.util.NewHibernateUtil;
 import java.util.Date;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.CustomScoped;
@@ -14,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -193,5 +195,38 @@ public class Apointment {
         this.setdID(0);
 
     }
+    
+    
+   public List<Apointment> showApointentPatient(){
+    Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction ts = null;
+        try {
+            ts = session.beginTransaction();
+            Query query = session.createQuery("FROM Apointment");
+           List<Apointment> list= query.list();
+           ts.commit();
+           return list;
+        } catch (Exception e) {
+            ts.rollback();
+        }finally{
+        session.flush();
+        }  
+        
+    return null;
+    }
+   
+   
+   public String provideServices(Apointment apointment){
+   
+   this.setFirstName(apointment.getFirstName());
+   this.setEmail(apointment.getEmail());
+   this.setPhone(apointment.getPhone());
+   this.setGender(apointment.getGender());
+   this.setDate(apointment.getDate());
+   
+   
+   
+   return  "apointedPatient";
+   }
 
 }

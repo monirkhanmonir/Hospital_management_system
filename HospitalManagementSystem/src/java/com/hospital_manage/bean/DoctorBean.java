@@ -238,7 +238,7 @@ public class DoctorBean {
     }
 
     
-    public String checkUser1(String  email){
+    public String checkUser1(String  email,String psd){
      String result=null;
        Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
@@ -248,8 +248,15 @@ public class DoctorBean {
             q.setString("email", email);
             List<DoctorBean> list= q.list();
             
+            
+            
             for(DoctorBean a: list){
-            if(email.equals(a.getEmail())&&psd.equals(a.getPsd())){
+            if(email.equals(a.getEmail()) && psd.equals(a.getPsd())){
+                
+                this.setName(a.getName());
+                this.setEmail(a.getEmail());
+                this.setPhone(a.getPhone());
+                
                 
             result= "doctorPanel.xhtml?faces-redirect=true";
             }else{
