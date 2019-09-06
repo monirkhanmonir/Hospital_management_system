@@ -18,39 +18,62 @@
             <div class="row">
                 <div class="col-md-12">
                     <p:panel id="basic" header="Patirnt Stattus" footer="Movie Details" style="margin-bottom:20px">
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container">
-                                <h1 class="display-4">Fluid jumbotron</h1>
-                                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+
+                     
+
+
+
+                            <div class="jumbotron jumbotron-fluid">
+                                <div class="container">
+                                    <p:panelGrid columns="4" styleClass="border:none;">
+                                        <h:outputText value="Name:" />
+                                        <h:outputText value="#{doctorBean.name}" />
+                                        <h:outputText value="Email: " />
+                                        <h:outputText value="#{doctorBean.email}" />
+                                        <h:outputText value="Phone: " />
+                                        <h:outputText value="#{doctorBean.phone}" />
+                                        <h:outputText value="Gender:  " />
+                                        <h:outputText value="#{doctorBean.gender}" />
+                                    </p:panelGrid>
+                                </div>
                             </div>
-                        </div>
 
-                        <p:panel id="basic" header="Patient Personal Information"  style="margin-bottom:20px">
+                            <p:panel id="basic" header="Patient Personal Information"  style="margin-bottom:20px">
 
-                            <p:panelGrid columns="4" styleClass="border:none;">
+                                <p:panelGrid columns="4" styleClass="border:none;">
 
+                                    
+                                    <h:outputText value="Name:" />
+                                    <h:outputText value="#{apointment.firstName}" />
 
-                                <h:outputText value="Name:" />
-                                <h:outputText value="#{apointment.firstName}" />
+                                    <h:outputText value="Email: " />
+                                    <h:outputText value="#{apointment.email}" />
 
-                                <h:outputText value="Email: " />
-                                <h:outputText value="#{apointment.email}" />
+                                    <h:outputText value="Phone: " />
+                                    <h:outputText value="#{apointment.phone}" />
 
-                                <h:outputText value="Phone: " />
-                                <h:outputText value="#{apointment.phone}" />
+                                    <h:outputText value="Gender: " />
+                                    <h:outputText value="#{apointment.gender}" />
 
-                                <h:outputText value="Gender: " />
-                                <h:outputText value="#{apointment.gender}" />
-                                
-                                <h:outputText value="Date:  " />
-                                <h:outputText value="#{apointment.date}" />
-                            </p:panelGrid>
+                                    <h:outputText value="Date:  " />
+                                    <h:outputText value="#{apointment.date}" />
+                                </p:panelGrid>
 
-                        </p:panel>
+                            </p:panel>
+                        
+                            <p:commandButton value="Change Medicin" styleClass=" offset-md-9" />
+                            <p:link value="Change Medicine" href="drViewMedicinDetails.xhtml"/>
+
+                        
                         <p:panel id="basic" header="Medicien Details"  style="margin-bottom:20px">
 
                             <div class="row">
-                                 <p:commandButton value="Change Medicin" styleClass="form-control offset-md-9"/>
+
+
+
+
+
+
                                 <div class="offset-md-3 col-md-6">
                                     <div class="row">
                                         <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
@@ -72,8 +95,8 @@
 
                                     </div>
 
-                                    
-                                   
+
+
 
 
 

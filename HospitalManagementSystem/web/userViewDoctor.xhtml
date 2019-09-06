@@ -52,7 +52,7 @@
                             
                             <h:outputText value="Massage:  " />
                             <h:outputText value="#{doctor.msg}" />
-                            <h:form> <p:commandButton value="Get Apointment" action="#{apointment.getApointment(doctor.name, doctor.phone)}"/></h:form>
+                            <h:form> <p:commandButton value="Get Apointment" action="#{apointment.getApointment(doctor.name, doctor.phone, doctor.email)}"/></h:form>
                         </p:panelGrid>
                     </div>
                     <br>

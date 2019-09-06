@@ -15,33 +15,33 @@
             </ui:insert> 
             <div class="row">
                 <div class="col-md-12">
-                    <p:dataTable var="patient" value="#{apointment.showApointentPatient()}">
+                    <p:dataTable var="patients" value="#{apointment.showApointentPatient()}">
                         <p:column headerText="Id">
-                            <h:outputText value="#{patient.id}" />
+                            <h:outputText value="#{patients.id}" />
                         </p:column>
 
                         <p:column headerText="First Name">
-                            <h:outputText value="#{patient.firstName}" />
+                            <h:outputText value="#{patients.firstName}" />
                         </p:column>
 
                         <p:column headerText="Last Name">
-                            <h:outputText value="#{patient.lastName}" />
+                            <h:outputText value="#{patients.lastName}" />
                         </p:column>
                         <p:column headerText="Email">
-                            <h:outputText value="#{patient.email}" />
+                            <h:outputText value="#{patients.email}" />
                         </p:column>
                         <p:column headerText="Phone">
-                            <h:outputText value="#{patient.phone}" />
+                            <h:outputText value="#{patients.phone}" />
                         </p:column>
                         <p:column headerText="Gender">
-                            <h:outputText value="#{patient.address}" />
+                            <h:outputText value="#{patients.address}" />
                         </p:column>
                         <p:column headerText="Date">
-                            <h:outputText value="#{patient.date}" />
+                            <h:outputText value="#{patients.date}" />
                         </p:column>
                         <p:column headerText="Service">
                             <h:form>
-                                <p:commandButton value="Services" action="#{apointment.provideServices(patient)}"/>
+                                <p:commandButton value="Services" action="#{apointment.provideServices(patients)}"/>
                             </h:form>
                         </p:column>
 

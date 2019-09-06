@@ -1,7 +1,7 @@
 package com.hospital_manage.bean;
 
-
 import com.hospital_manage.util.NewHibernateUtil;
+
 
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -13,6 +13,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -22,30 +23,31 @@ import org.hibernate.Transaction;
 @Entity
 @Table(name = "doctors")
 public class DoctorBean {
+
     @Column(name = "name")
     private String name;
     @Id
     @Column(name = "email")
     private String email;
-    
+
     @Column(name = "phone")
     private int phone;
-    
+
     @Column(name = "gender")
     private String gender;
-    
+
     @Column(name = "msg")
     private String msg;
-    
+
     @Column(name = "Specialist")
-    private String specialist;  
-    
+    private String specialist;
+
     @Column(name = "psd")
     private String psd;
     
-     
-     
-    
+    @Transient
+     private List<DoctorBean> list;
+
     public String getName() {
         return name;
     }
@@ -85,7 +87,7 @@ public class DoctorBean {
     public void setMsg(String msg) {
         this.msg = msg;
     }
-    
+
     public String getSpecialist() {
         return specialist;
     }
@@ -93,7 +95,7 @@ public class DoctorBean {
     public void setSpecialist(String Specialist) {
         this.specialist = Specialist;
     }
-    
+
     public String getPsd() {
         return psd;
     }
@@ -102,186 +104,166 @@ public class DoctorBean {
         this.psd = psd;
     }
     
-    
-    public String saveDoctor(DoctorBean doctor){
-    Session session = NewHibernateUtil.getSessionFactory().openSession();
+       public List<DoctorBean> getList() {
+        return list;
+    }
+
+    public void setList(List<DoctorBean> list) {
+        this.list = list;
+    }
+
+    public String saveDoctor(DoctorBean doctor) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
         try {
             ts = session.beginTransaction();
             session.save(doctor);
             ts.commit();
         } catch (Exception e) {
-             ts.rollback();
-        }finally{
-         session.flush();
+            ts.rollback();
+        } finally {
+            session.flush();
         }
         clear();
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Successful", "Insert Succesfull"));
-    
-       return null;
+
+        return null;
     }
-    
-    
-    public List<DoctorBean> showDoctor(){
-    Session session = NewHibernateUtil.getSessionFactory().openSession();
+
+    public List<DoctorBean> showDoctor() {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
         try {
             ts = session.beginTransaction();
             Query query = session.createQuery("FROM DoctorBean");
-           List<DoctorBean> list= query.list();
-           ts.commit();
-           return list;
+            List<DoctorBean> list = query.list();
+            ts.commit();
+            return list;
         } catch (Exception e) {
             ts.rollback();
-        }finally{
-        session.flush();
-        }  
-        
-    return null;
+        } finally {
+            session.flush();
+        }
+
+        return null;
     }
-    
-    
-   
-    
-    
-    
-   
-    
-    
-    
-    
-    
-    public String editDoctor(DoctorBean doctor){
+
+    public String editDoctor(DoctorBean doctor) {
         this.setEmail(doctor.getEmail());
         this.setGender(doctor.getGender());
         this.setMsg(doctor.getMsg());
         this.setName(doctor.getName());
         this.setPhone(doctor.getPhone());
-        this.setSpecialist(doctor.getSpecialist());        
-    return "editDoctor";
+        this.setSpecialist(doctor.getSpecialist());
+        this.setPsd(doctor.getPsd());
+        return "editDoctor";
     }
-    
-    
-    
-    
-    
-    public String  findDoctor(){
-       
-    Session session = NewHibernateUtil.getSessionFactory().openSession();
+
+    public String findDoctor(String specialist) {
+
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
         try {
             ts = session.beginTransaction();
             Query query = session.createQuery("FROM DoctorBean");
-           
-           ts.commit();
-          return"userViewDoctor";
+
+            ts.commit();
+            return "userViewDoctor";
         } catch (Exception e) {
             ts.rollback();
-        }finally{
-            
-        session.flush();
-        }         
-    return null;
+        } finally {
+
+            session.flush();
+        }
+        return null;
     }
-    
-    
-    
-    
-    public String updateDoctor(DoctorBean doctor){
-    Session session = NewHibernateUtil.getSessionFactory().openSession();
+
+    public String updateDoctor(DoctorBean doctor) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
         try {
             ts = session.beginTransaction();
             session.update(doctor);
             ts.commit();
         } catch (Exception e) {
-             ts.rollback();
-        }finally{
-         session.flush();
+            ts.rollback();
+        } finally {
+            session.flush();
         }
         clear();
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Successful", "Update Succesfull"));
-    
-       return null;  
+
+        return "adminShowDoctor";
     }
-    
-    
-    
-    public String deletDoctor(DoctorBean doctor){
-    Session session = NewHibernateUtil.getSessionFactory().openSession();
+
+    public String deletDoctor(DoctorBean doctor) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
         try {
             ts = session.beginTransaction();
             session.delete(doctor);
             ts.commit();
+            return "adminShowDoctor";
         } catch (Exception e) {
-             ts.rollback();
-        }finally{
-         session.flush();
-        }  
-        
-       
-    
-       return null;  
-    }
-    
-    
-    public void clear(){
-    this.setEmail("");
-    this.setGender("");
-    this.setMsg("");
-    this.setName("");
-    this.setPhone(0);
-    this.setSpecialist("");
-    }
-
-    
-    public String checkUser1(String  email,String psd){
-     String result=null;
-       Session session = NewHibernateUtil.getSessionFactory().openSession();
-        Transaction ts = null;
-        try {
-          ts=  session.beginTransaction();
-            Query q= session.createQuery("FROM DoctorBean where email=:email");
-            q.setString("email", email);
-            List<DoctorBean> list= q.list();
-            
-            
-            
-            for(DoctorBean a: list){
-            if(email.equals(a.getEmail()) && psd.equals(a.getPsd())){
-                
-                this.setName(a.getName());
-                this.setEmail(a.getEmail());
-                this.setPhone(a.getPhone());
-                
-                
-            result= "doctorPanel.xhtml?faces-redirect=true";
-            }else{
-                result= "gallary.xhtml?faces-redirect=true";
-            }
-            }
-           
-        } catch (Exception e) {
+            ts.rollback();
+        } finally {
+            session.flush();
         }
-          
-      return result;  
+
+        return null;
+    }
+
+    public void clear() {
+        this.setEmail("");
+        this.setGender("");
+        this.setMsg("");
+        this.setName("");
+        this.setPhone(0);
+        this.setSpecialist("");
+        this.setPsd("");
+    }
+
+    public String checkUser1(String email, String psd) {
+        String result = null;
+
+        if (email.equals("admin") && psd.equals("admin")) {
+            result = "adminProfile.xhtml?faces-redirect=true";
+            this.setEmail("");
+            this.setPsd("");
+            
+        } else {
+            Session session = NewHibernateUtil.getSessionFactory().openSession();
+            Transaction ts = null;
+            try {
+                ts = session.beginTransaction();
+                Query q = session.createQuery("FROM DoctorBean where email=:email");
+                q.setString("email", email);
+                List<DoctorBean> list = q.list();
+                for (DoctorBean a : list) {
+                    if (email.equals(a.getEmail()) && psd.equals(a.getPsd())) {
+                        this.setName(a.getName());
+                        this.setEmail(a.getEmail());
+                        this.setPhone(a.getPhone());
+                        this.setGender(a.getGender());
+                        result = "doctorPanel.xhtml?faces-redirect=true";
+                    } else {
+                        result = "gallary.xhtml?faces-redirect=true";
+                    }
+                }
+
+            } catch (Exception e) {
+            }
+        }
+
+        return result;
     }
     
+
+    
+    
     
 
     
-  
-    
-
 }
-
-
-
-
-
-
-
-

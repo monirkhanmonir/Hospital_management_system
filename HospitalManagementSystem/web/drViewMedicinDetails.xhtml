@@ -17,70 +17,85 @@
             </ui:insert> 
             <div class="row">
                 <div class="col-md-12">
-                    <p:panel id="basic" header="Patirnt Stattus" footer="Movie Details" style="margin-bottom:20px">
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container">
-                                <h1 class="display-4">Fluid jumbotron</h1>
-                                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-                            </div>
-                        </div>
-
-                        <p:panel id="basic" header="Patient Personal Information"  style="margin-bottom:20px">
-
-                            <p:panelGrid columns="4" styleClass="border:none;">
-                                
-
-                                <h:outputText value="Name:" />
-                                <h:outputText value="Kobe Bryant" />
-
-                                <h:outputText value="Team:" />
-                                <h:outputText value="Los Angeles Lakers" />
-
-                                <h:outputText value="Position:" />
-                                <h:outputText value="Shooting Guard" />
-
-                                <h:outputText value="Number:" />
-                                <h:outputText value="24" />
-                            </p:panelGrid>
-
-                        </p:panel>
-                        <p:panel id="basic" header="Medicien Details"  style="margin-bottom:20px">
-
-                            <div class="row">
-                                <div class="offset-md-3 col-md-6">
-                                    <p:panelGrid columns="2">
-                                        <p:outputLabel value="Medicine Name"/>
-                                        <p:outputLabel value="Rules"/>
-                                        <p:inputText></p:inputText>
-                                         <p:inputMask  mask="9-9-9"/>
-                                         <p:inputText></p:inputText>
-                                         <p:inputMask  mask="9-9-9"/>
-                                         <p:inputText></p:inputText>
-                                         <p:inputMask  mask="9-9-9"/>
-                                         <p:inputText></p:inputText>
-                                         <p:inputMask  mask="9-9-9"/>
-                                         <p:inputText></p:inputText>
-                                         <p:inputMask  mask="9-9-9"/>
-                                         <p:inputText></p:inputText>
-                                         <p:inputMask  mask="9-9-9"/>
-                                         <p:inputText></p:inputText>
-                                         <p:inputMask  mask="9-9-9"/>
-                                         <p:inputText></p:inputText>
-                                         <p:inputMask  mask="9-9-9"/>
-                                         <p:inputText></p:inputText>
-                                         <p:inputMask  mask="9-9-9"/>
-                                         <p:outputLabel></p:outputLabel>
-                                         <p:commandButton value="Save" styleClass="form-control"/>
+                    <h:form>
+                        <p:panel id="basic" header="Patirnt Stattus" footer="Movie Details" style="margin-bottom:20px">
+                            <div class="jumbotron jumbotron-fluid">
+                                <div class="container">
+                                    <p:panelGrid columns="4" styleClass="border:none;">
+                                        <h:outputText value="Name:" />
+                                        <h:outputText value="#{doctorBean.name}" />
+                                        <h:outputText value="Email: " />
+                                        <h:outputText value="#{doctorBean.email}" />
+                                        <h:outputText value="Phone: " />
+                                        <h:outputText value="#{doctorBean.phone}" />
+                                        <h:outputText value="Gender:  " />
+                                        <h:outputText value="#{doctorBean.gender}" />
                                     </p:panelGrid>
-                                   
+
                                 </div>
                             </div>
 
+                            <p:panel id="basic" header="Patient Personal Information"  style="margin-bottom:20px">
+
+                                <p:panelGrid columns="4" styleClass="border:none;">
+                                    <h:outputText value="Id " />
+                                    <h:outputText value="#{apointment.id}" />
+
+                                    <h:outputText value="Name:" />
+                                    <h:outputText value="#{apointment.firstName}" />
+
+                                    <h:outputText value="Gender:" />
+                                    <h:outputText value="#{apointment.gender}" />
+
+                                    <h:outputText value="Phone: " />
+                                    <h:outputText value="#{apointment.phone}" />
+
+                                    <h:outputText value="Address: " />
+                                    <h:outputText value="#{apointment.address}" />
+                                    <h:outputText value="Date: " />
+                                    <h:outputText value="#{apointment.date}" />
+                                </p:panelGrid>
+
+                            </p:panel>
+                            <p:panel id="basic" header="Medicien Details"  style="margin-bottom:20px">
+
+                                <div class="row">
+                                    <div class="offset-md-3 col-md-6">
+                                        <p:panelGrid columns="2">
+                                            <p:outputLabel value="Medicine Name"/>
+                                            <p:outputLabel value="Rules"/>
+                                            <p:inputText value="#{patient.md1}"/>
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule1}"/>
+                                            <p:inputText value="#{patient.md2}"/>
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule2}"/>
+                                            <p:inputText value="#{patient.md3}"/>
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule3}"/>
+                                            <p:inputText value="#{patient.md4}"/>
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule4}"/>
+                                            <p:inputText value="#{patient.md5}"/>
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule5}"/>
+                                            <p:inputText value="#{patient.md6}"/>
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule6}"/>
+                                            <p:inputText value="#{patient.md7}"/>
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule7}"/>
+                                            <p:inputText value="#{patient.md8}"/>
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule8}"/>
+                                            <p:inputText value="#{patient.md9}"/>
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule9}"/>
+                                            <p:inputText value="#{patient.md10}"/>
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule10}"/>
+                                            <p:outputLabel></p:outputLabel>
+                                            <p:commandButton value="Save" styleClass="form-control" action="#{patient.changeMedicin(patient,apointment,doctorBean)}"/>
+                                        </p:panelGrid>
+
+                                    </div>
+                                </div>
+
+                            </p:panel>
+
+
                         </p:panel>
-
-
-                    </p:panel>
-
+                    </h:form>
 
 
                 </div>

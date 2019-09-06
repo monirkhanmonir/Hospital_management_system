@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="offset-md-3 col-md-6">
                     <h:form>
-                        <p:growl id="growl" showDetail="true" sticky="true" />
+
                         <div class="card">
                             <div class="card-header">
 
@@ -34,8 +34,8 @@
                                         <label for="dr-phone">Phone:</label>
                                         <p:inputText styleClass="form-control" readonly="true" value="#{apointment.drPhone}" id="dr-phone"/>
                                     </div>
-
-                                    <p:inputText  value="dr.id" type="hidden"/>
+                                    
+                                    <p:inputText  value="#{apointment.drEmail}" readonly="true"/>
                                 </div>
 
 
@@ -89,12 +89,37 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
-                                        <p:commandButton value="Submit" styleClass="btn-success form-control" action="#{apointment.saveApointment(apointment)}" update="growl"/>
+                                        <p:commandButton value="Submit" styleClass="btn-success form-control" action="#{apointment.saveApointment(apointment)}" onclick="PF('dlg3').show();"/>
                                     </div>
                                 </div>
 
 
-
+                                <p:dialog header="Wellcome Patient" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" resizable="false">
+                                    <p:panel header="Doctor Information">
+                                        <p:panelGrid columns="2">
+                                            <p:outputLabel value="Doctor Name:"/>
+                                            <p:outputLabel value="#{apointment.drName}"/>
+                                            <p:outputLabel value="Doctor Email: "/>
+                                            <p:outputLabel value="#{apointment.drEmail}"/>
+                                            <p:outputLabel value="Doctor Phone: "/>
+                                            <p:outputLabel value="#{apointment.drPhone}"/>                                           
+                                        </p:panelGrid>
+                                    </p:panel>
+                                    
+                                    <p:panel header="Patient Information">
+                                        <p:panelGrid columns="2">
+                                            <p:outputLabel value="Patient Id:"/>
+                                            <p:outputLabel value="#{apointment.id}"/>
+                                            <p:outputLabel value="Name:"/>
+                                            <p:outputLabel value="#{apointment.firstName}"/>
+                                            <p:outputLabel value="Email :"/>
+                                            <p:outputLabel value="#{apointment.email}"/>
+                                            <p:outputLabel value="Date:"/>
+                                            <p:outputLabel value="#{apointment.date}"/>
+                                            
+                                        </p:panelGrid>
+                                    </p:panel>
+                                </p:dialog>
 
                             </div>
                         </div>

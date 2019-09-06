@@ -3,9 +3,7 @@ package com.hospital_manage.bean;
 import com.hospital_manage.util.NewHibernateUtil;
 import java.util.Date;
 import java.util.List;
-
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.CustomScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -34,9 +32,8 @@ public class Apointment {
 
     @Column(name = "drPhone")
     private int drPhone;
-
-    @Column(name = "dID")
-    private int dID;
+    @Column(name = "drEmail")
+    private String drEmail;
 
     @Column(name = "fName")
     private String firstName;
@@ -81,14 +78,6 @@ public class Apointment {
 
     public void setDrPhone(int drPhone) {
         this.drPhone = drPhone;
-    }
-
-    public int getdID() {
-        return dID;
-    }
-
-    public void setdID(int dID) {
-        this.dID = dID;
     }
 
     public String getEmail() {
@@ -147,10 +136,19 @@ public class Apointment {
         this.date = date;
     }
 
-    public String getApointment(String drName, int drPhone) {
+    public String getDrEmail() {
+        return drEmail;
+    }
+
+    public void setDrEmail(String drEmail) {
+        this.drEmail = drEmail;
+    }
+
+    public String getApointment(String drName, int drPhone, String drEmail) {
 
         this.drName = drName;
         this.drPhone = drPhone;
+        this.drEmail = drEmail;
 
         return "apointment.xhtml?faces-redirect=true";
     }
@@ -171,15 +169,14 @@ public class Apointment {
         } finally {
             session.flush();
         }
-        
 
         FacesContext context = FacesContext.getCurrentInstance();
 
         context.addMessage(null, new FacesMessage("Apointment request Successful", "Patient Name: " + firstName + " " + lastName
                 + "<br> Patient Status: null. <br> Apointment Id: " + id));
-        
+
         clearApointment();
-        return null;
+        return "index";
     }
 
     public void clearApointment() {
@@ -192,41 +189,76 @@ public class Apointment {
         this.setId(0);
         this.setLastName("");
         this.setPhone(0);
-        this.setdID(0);
+        this.setDrEmail("");
 
     }
-    
-    
-   public List<Apointment> showApointentPatient(){
-    Session session = NewHibernateUtil.getSessionFactory().openSession();
+
+    public List<Apointment> showApointentPatient() {
+
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction ts = null;
+        try {
+            ts = session.beginTransaction();
+            Query q = session.createQuery("FROM Apointment where drEmail=:drEmail");
+            q.setString("drEmail", drEmail);
+            List<Apointment> list = q.list();
+            ts.commit();
+            return list;
+        } catch (Exception e) {
+            ts.rollback();
+        } finally {
+            session.flush();
+        }
+
+        return null;
+    }
+
+    public String provideServices(Apointment apointment) {
+
+        this.setFirstName(apointment.getFirstName());
+        this.setEmail(apointment.getEmail());
+        this.setPhone(apointment.getPhone());
+        this.setGender(apointment.getGender());
+        this.setDate(apointment.getDate());
+        this.setId(apointment.getId());
+
+        return "apointedPatient";
+    }
+
+    public List<Apointment> showApointment() {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
         try {
             ts = session.beginTransaction();
             Query query = session.createQuery("FROM Apointment");
-           List<Apointment> list= query.list();
-           ts.commit();
-           return list;
+            List<Apointment> list = query.list();
+            ts.commit();
+            return list;
         } catch (Exception e) {
             ts.rollback();
-        }finally{
-        session.flush();
-        }  
-        
-    return null;
+        } finally {
+            session.flush();
+        }
+
+        return null;
     }
-   
-   
-   public String provideServices(Apointment apointment){
-   
-   this.setFirstName(apointment.getFirstName());
-   this.setEmail(apointment.getEmail());
-   this.setPhone(apointment.getPhone());
-   this.setGender(apointment.getGender());
-   this.setDate(apointment.getDate());
-   
-   
-   
-   return  "apointedPatient";
-   }
+
+    public String deleteApo(Apointment apointment) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction ts = null;
+
+        try {
+
+            ts = session.beginTransaction();
+            session.delete(apointment);
+            ts.commit();
+            return "adminShowApointment.xhtml";
+        } catch (Exception e) {
+            ts.rollback();
+        } finally {
+            session.flush();
+        }
+        return null;
+    }
 
 }

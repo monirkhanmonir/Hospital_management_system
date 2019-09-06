@@ -23,31 +23,40 @@
 
                     <h:form>
                         
-                        <p:dataTable var="doctor" value="#{doctorBean.showDoctor()}" rows="10"
+                        <p:dataTable var="app" value="#{apointment.showApointment()}" rows="10"
                                      paginator="true"
                                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      rowsPerPageTemplate="5,10,15">
+                            <p:column headerText="Id">
+                                <h:outputText value="#{app.id}" />
+                            </p:column>
                             <p:column headerText="Name">
-                                <h:outputText value="#{doctor.name}" />
+                                <h:outputText value="#{app.firstName}" />
                             </p:column>
 
                             <p:column headerText="Email">
-                                <h:outputText value="#{doctor.email}" />
+                                <h:outputText value="#{app.email}" />
                             </p:column>
-                            <p:column headerText="Password">
-                                <h:outputText value="#{doctor.psd}" />
+                            <p:column headerText="Gender">
+                                <h:outputText value="#{app.gender}" />
                             </p:column>
 
                             <p:column headerText="Contact NO">
-                                <h:outputText value="#{doctor.phone}" />
+                                <h:outputText value="#{app.phone}" />
                             </p:column>
 
-                            <p:column headerText="Spacilist">
-                                <h:outputText value="#{doctor.specialist}" />
+                            <p:column headerText="Address">
+                                <h:outputText value="#{app.address}" />
                             </p:column>
-                            <p:column headerText="Edit/Delete">
-                                <p:commandButton value="Edit" action="#{doctorBean.editDoctor(doctor)}"/>
-                                <p:commandButton value="Delet" action="#{doctorBean.deletDoctor(doctor)}" />
+                            <p:column headerText="Date">
+                                <h:outputText value="#{app.date}" />
+                            </p:column>
+                            <p:column headerText="Doctor">
+                                <h:outputText value="#{app.drName}" />
+                            </p:column>
+                            <p:column headerText="Delete">
+                               
+                                <p:commandButton value="Delet" action="#{apointment.deleteApo(app)}"/>
                             </p:column>
                             <f:facet name="paginatorTopLeft">
                                 <p:commandButton type="button" icon="pi pi-refresh" />

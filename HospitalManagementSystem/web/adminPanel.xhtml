@@ -12,13 +12,13 @@
     <h:body>
         <div class="container">
             <ui:insert name = "header" >
-                <ui:include src = "indxHead.xhtml" />
+                <ui:include src = "adminHead.xhtml" />
             </ui:insert> 
 
-            <p:link outcome="adminShowDoctor" value="show Doctor"/>
+           
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="offset-md-2 col-md-8">
                     <h:form>
                         <h1>Doctor Registration Form</h1>
                         <p:growl id="growl" showDetail="true" sticky="true" />
@@ -27,19 +27,19 @@
                                 <td>
                                     Name: 
                                 </td>
-                                <td><p:inputText type="text" value="#{doctorBean.name}"/> </td>
+                                <td><p:inputText type="text" value="#{doctorBean.name}" styleClass="form-control"/> </td>
                             </tr>
                             <tr>
                                 <td>
                                     Email: 
                                 </td>
-                                <td><p:inputText type="email" value="#{doctorBean.email}"/> </td>
+                                <td><p:inputText type="email" value="#{doctorBean.email}"  styleClass="form-control"/> </td>
                             </tr>
                             <tr>
                                 <td>
                                     Password: 
                                 </td>
-                                <td><p:inputText type="email" value="#{doctorBean.psd}"/> </td>
+                                <td><p:inputText type="email" value="#{doctorBean.psd}" styleClass="form-control"/> </td>
                             </tr>
                             <tr>
                                 <td>
@@ -64,7 +64,7 @@
                                     Speciality:
                                 </td>
                                 <td>
-                                    <p:selectOneMenu value="#{doctorBean.specialist}">
+                                    <p:selectOneMenu value="#{doctorBean.specialist}"  styleClass="form-control">
                                         <f:selectItem itemLabel="GASTROENTEROLOGY " itemValue="GASTROENTEROLOGY " />
                                         <f:selectItem itemLabel="SURGERY" itemValue="SURGERY" />
                                         <f:selectItem itemLabel="PSYCHIATRY" itemValue="PSYCHIATRY" />
@@ -79,13 +79,15 @@
                                     Adout Doctor:
                                 </td>
                                 <td>
-                                    <p:inputTextarea rows="4" cols="20" counter="display" maxlength="100" counterTemplate="{0} characters remaining." autoResize="false" value="#{doctorBean.msg}"/>
+                                    <p:inputTextarea rows="4" cols="30" counter="display" maxlength="100" counterTemplate="{0} characters remaining." autoResize="false" value="#{doctorBean.msg}"/>
                                     <h:outputText id="display" />
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><p:commandButton value="submit" styleClass="btn-success" action="#{doctorBean.saveDoctor(doctorBean)}" update="growl"/></td>
+                                <td><p:commandButton value="submit" styleClass="btn-success" action="#{doctorBean.saveDoctor(doctorBean)}" update="growl"/>
+                                    <p:commandButton value="resest" styleClass="btn-success" action="#{doctorBean.clear()}"/>
+                                </td>
                             </tr>
                         </table>
 

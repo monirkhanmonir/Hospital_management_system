@@ -67,8 +67,7 @@
                 </div>
                 <dir class="col-md-12">
                     <div class="jumbotron">
-                        <h1 class="display-4">Welcome Our Hospital</h1>
-                        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                       
                     </div>
                 </dir>
 
@@ -96,7 +95,7 @@
                                                     </p:selectOneMenu>
                                                 </td>
                                                 <td>
-                                                    <p:commandButton value="Search" action="#{doctorBean.findDoctor()}"/>
+                                                    <p:commandButton value="Search" action="#{doctorBean.findDoctor1(doctorBean.specialist)}"/>
                                                     <p:link outcome="userViewDoctor" value="show Doctor"/>
                                                 </td>
                                             </tr>
