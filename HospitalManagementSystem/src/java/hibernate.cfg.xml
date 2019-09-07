@@ -13,6 +13,7 @@
         <property name="show_sql">true</property>
         <mapping class = "com.hospital_manage.bean.DoctorBean"/>
         <mapping class = "com.hospital_manage.bean.Apointment"/>
+        <mapping class="com.hospital_manage.bean.Patient"/>
         
     </session-factory>
 </hibernate-configuration>

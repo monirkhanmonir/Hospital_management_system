@@ -9,36 +9,41 @@
     </h:head>
     <h:body>
         <ui:composition> 
-            
-                    
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-                            <a class="navbar-brand" href="#">Navbar</a>
-                            <div class="collapse navbar-collapse" id="navbarNav">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item active">
-                                        <p:link outcome="index"  value="Home" styleClass="nav-link"></p:link>
-                                    </li>
-                                    <li class="nav-item">
-                                        <p:link outcome="aboutUS" value="AboutUS" styleClass="nav-link"></p:link>
-                                    </li>
-                                    <li class="nav-item">
-                                        <p:link outcome="contractUs" value="ContractUs" styleClass="nav-link"></p:link>
-                                    </li>
-                                    <li class="nav-item">
-                                        <p:link outcome="gallary" value="Gallary" styleClass="nav-link"></p:link>
-                                    </li>
-                                    <li class="nav-item">
-                                        <p:link outcome="login" value="Login" styleClass="nav-link"></p:link>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                        </nav>
-                   
-             
+
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <p:link outcome="index"  value="Home" styleClass="nav-link"></p:link>
+                        </li>
+                        <li class="nav-item">
+                            <p:link outcome="aboutUS" value="AboutUS" styleClass="nav-link"></p:link>
+                        </li>
+                        <li class="nav-item">
+                            <p:link outcome="contractUs" value="ContractUs" styleClass="nav-link"></p:link>
+                        </li>
+                        <li class="nav-item">
+                            <p:link outcome="gallary" value="Gallary" styleClass="nav-link"></p:link>
+                        </li>
+                        <li class="nav-item">
+                            <p:link outcome="login" value="Login" styleClass="nav-link"></p:link>
+                        </li>
+                    </ul>
+                </div>
+                <h:form class="form-inline">
+                    <p:spinner placeholder="input patient id" styleClass="form-control" value="#{patient.id}"/>
+                    <p:commandButton value="Search" styleClass="btn btn-outline-success" action="#{patient.myPatient(patient.id)}"/>
+
+                </h:form>
+
+            </nav>
+
+
         </ui:composition>
-        
-        
+
+
     </h:body>
 </html>
 

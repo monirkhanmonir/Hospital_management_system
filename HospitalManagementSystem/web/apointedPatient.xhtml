@@ -18,11 +18,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <p:panel id="basic" header="Patirnt Stattus" footer="Movie Details" style="margin-bottom:20px">
-
-                     
-
-
-
+                        <h:form>
+                            
+                        
                             <div class="jumbotron jumbotron-fluid">
                                 <div class="container">
                                     <p:panelGrid columns="4" styleClass="border:none;">
@@ -38,11 +36,12 @@
                                 </div>
                             </div>
 
-                            <p:panel id="basic" header="Patient Personal Information"  style="margin-bottom:20px">
+                            <p:panel id="basic1" header="Patient Personal Information"  style="margin-bottom:20px">
 
                                 <p:panelGrid columns="4" styleClass="border:none;">
 
-                                    
+                                    <h:outputText value="Id:" />
+                                    <h:outputText value="#{apointment.id}" />
                                     <h:outputText value="Name:" />
                                     <h:outputText value="#{apointment.firstName}" />
 
@@ -58,54 +57,24 @@
                                     <h:outputText value="Date:  " />
                                     <h:outputText value="#{apointment.date}" />
                                 </p:panelGrid>
+                               
 
                             </p:panel>
+                            
+                            <p:panel id="basic" header="Medicine Detailes"  style="margin-bottom:20px">
+                                <p:panelGrid columns="2" styleClass="border:none;">
+                                    <p:outputLabel value="Medicine Name"/>
+                                            <p:outputLabel value="Rules"/>
+                                            <p:inputText value="#{patient.mdcn1}" />                                          
+                                            <p:inputMask  mask="9-9-9" value="#{patient.rule1}"/>
+                                             <p:commandButton value="Save" styleClass=" offset-md-9" action="#{patient.saveData(patient)}"/>
+                                     
+                                </p:panelGrid>
+                            </p:panel>
                         
-                            <p:commandButton value="Change Medicin" styleClass=" offset-md-9" />
-                            <p:link value="Change Medicine" href="drViewMedicinDetails.xhtml"/>
-
-                        
-                        <p:panel id="basic" header="Medicien Details"  style="margin-bottom:20px">
-
-                            <div class="row">
-
-
-
-
-
-
-                                <div class="offset-md-3 col-md-6">
-                                    <div class="row">
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass="col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass="col-md-6"></p:outputLabel>
-                                        <p:outputLabel styleClass=" col-md-6"></p:outputLabel>
-
-
-
-                                    </div>
-
-
-
-
-
-
-                                </div>
-                            </div>
-
-                        </p:panel>
-
-
+                             
+                            
+                            </h:form>
                     </p:panel>
 
 

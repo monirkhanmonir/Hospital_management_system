@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -55,6 +56,10 @@ public class Apointment {
 
     @Column(name = "date")
     private Date date;
+    
+    @Transient
+    private DoctorBean doctor = new DoctorBean();
+   
 
     public int getId() {
         return id;
@@ -143,6 +148,17 @@ public class Apointment {
     public void setDrEmail(String drEmail) {
         this.drEmail = drEmail;
     }
+    
+    public DoctorBean getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(DoctorBean doctor) {
+        this.doctor = doctor;
+    }
+    
+    
+   
 
     public String getApointment(String drName, int drPhone, String drEmail) {
 
@@ -194,13 +210,13 @@ public class Apointment {
     }
 
     public List<Apointment> showApointentPatient() {
-
+        drEmail = doctor.getEmail();
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
         try {
             ts = session.beginTransaction();
             Query q = session.createQuery("FROM Apointment where drEmail=:drEmail");
-            q.setString("drEmail", drEmail);
+            q.setString("drEmail",drEmail );
             List<Apointment> list = q.list();
             ts.commit();
             return list;
@@ -221,7 +237,6 @@ public class Apointment {
         this.setGender(apointment.getGender());
         this.setDate(apointment.getDate());
         this.setId(apointment.getId());
-
         return "apointedPatient";
     }
 
@@ -260,5 +275,11 @@ public class Apointment {
         }
         return null;
     }
+
+   
+
+    
+
+    
 
 }

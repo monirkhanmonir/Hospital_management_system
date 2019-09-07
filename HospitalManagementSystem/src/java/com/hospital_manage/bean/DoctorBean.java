@@ -1,6 +1,7 @@
 package com.hospital_manage.bean;
 
 import com.hospital_manage.util.NewHibernateUtil;
+import java.util.ArrayList;
 
 
 import java.util.List;
@@ -47,6 +48,8 @@ public class DoctorBean {
     
     @Transient
      private List<DoctorBean> list;
+    
+    
 
     public String getName() {
         return name;
@@ -160,24 +163,7 @@ public class DoctorBean {
         return "editDoctor";
     }
 
-    public String findDoctor(String specialist) {
-
-        Session session = NewHibernateUtil.getSessionFactory().openSession();
-        Transaction ts = null;
-        try {
-            ts = session.beginTransaction();
-            Query query = session.createQuery("FROM DoctorBean");
-
-            ts.commit();
-            return "userViewDoctor";
-        } catch (Exception e) {
-            ts.rollback();
-        } finally {
-
-            session.flush();
-        }
-        return null;
-    }
+    
 
     public String updateDoctor(DoctorBean doctor) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
@@ -247,6 +233,7 @@ public class DoctorBean {
                         this.setEmail(a.getEmail());
                         this.setPhone(a.getPhone());
                         this.setGender(a.getGender());
+                        
                         result = "doctorPanel.xhtml?faces-redirect=true";
                     } else {
                         result = "gallary.xhtml?faces-redirect=true";
@@ -261,6 +248,34 @@ public class DoctorBean {
     }
     
 
+    
+    
+    
+    
+    
+    
+    
+    public String findDoctor(String specialist) {
+        list = new ArrayList<>();
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction ts = null;
+        try {
+            ts = session.beginTransaction();
+            Query query = session.createQuery("FROM DoctorBean where Specialist=:specialist");
+           query.setString("specialist", specialist);
+            list = query.list();
+            ts.commit();
+            return "userViewDoctor";
+        } catch (Exception e) {
+            ts.rollback();
+        } finally {
+
+            session.flush();
+        }
+        return null;
+    }
+    
+    
     
     
     

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <ui:insert name = "header" >
+                <ui:include src = "doctorHead.xhtml" />
+            </ui:insert> 
+            <div class="row">
+                <div class="col-md-12">
+                    <p:panel id="basic" header="Patirnt Stattus" footer="Movie Details" style="margin-bottom:20px">
+                        <c:forEach var="p" items="#{patient.patientList}"
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <p:panelGrid columns="4" styleClass="border:none;">
+                                    <h:outputText value="Name:" />
+                                    <h:outputText value="" />
+                                    <h:outputText value="Email: " />
+                                    <h:outputText value="}" />
+                                    <h:outputText value="Phone: " />
+                                    <h:outputText value="" />
+                                    <h:outputText value="Gender:  " />
+                                    <h:outputText value="" />
+                                </p:panelGrid>
+                            </div>
+                        </div>
+
+                        <p:panel id="basic1" header="Patient Personal Information"  style="margin-bottom:20px">
+
+                            <p:panelGrid columns="4" styleClass="border:none;">
+
+                                <h:outputText value="Id:" />
+                                <h:outputText value="" />
+                                <h:outputText value="Name:" />
+                                <h:outputText value="" />
+
+                                <h:outputText value="Email: " />
+                                <h:outputText value="" />
+
+                                <h:outputText value="Phone: " />
+                                <h:outputText value="" />
+
+                                <h:outputText value="Gender: " />
+                                <h:outputText value="" />
+
+                                <h:outputText value="Date:  " />
+                                <h:outputText value="" />
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panel id="basic" header="Medicine Detailes"  style="margin-bottom:20px">
+                            <p:panelGrid columns="2" styleClass="border:none;">
+                                <p:outputLabel value="Medicine Name"/>
+                                <p:outputLabel value="Rules"/>
+                                <p:outputLabel value="Medicine Name"/>
+                                <p:outputLabel value="Rules"/>
+                            </p:panelGrid>
+                        </p:panel>                 
+                    </p:panel>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
