@@ -46,10 +46,10 @@
 
                             <h:outputText value="Phone: " />
                             <h:outputText value="#{doctor.phone}" />
-                            
+
                             <h:outputText value="Spachalist:  " />
                             <h:outputText value="#{doctor.specialist}" />
-                            
+
                             <h:outputText value="Massage:  " />
                             <h:outputText value="#{doctor.msg}" />
                             <h:form> <p:commandButton value="Get Apointment" action="#{apointment.getApointment(doctor.name, doctor.phone, doctor.email)}"/></h:form>
@@ -63,6 +63,9 @@
 
 
             </div>
+            <ui:insert name = "footer" >
+                <ui:include src = "footer.xhtml" />
+            </ui:insert> 
         </div>
 
 

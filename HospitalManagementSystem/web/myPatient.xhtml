@@ -19,18 +19,18 @@
             <div class="row">
                 <div class="col-md-12">
                     <p:panel id="basic" header="Patirnt Stattus" footer="Movie Details" style="margin-bottom:20px">
-                        <c:forEach var="p" items="#{patient.patientList}"
+                        <c:forEach var="p" items="#{patient.patientList}">
                         <div class="jumbotron jumbotron-fluid">
                             <div class="container">
                                 <p:panelGrid columns="4" styleClass="border:none;">
                                     <h:outputText value="Name:" />
-                                    <h:outputText value="" />
+                                    <h:outputText value="#{p.drName}" />
                                     <h:outputText value="Email: " />
-                                    <h:outputText value="}" />
+                                    <h:outputText value="#{p.drEmail}" />
                                     <h:outputText value="Phone: " />
-                                    <h:outputText value="" />
+                                    <h:outputText value="#{p.drPhone}" />
                                     <h:outputText value="Gender:  " />
-                                    <h:outputText value="" />
+                                    <h:outputText value="#{p.drGender}" />
                                 </p:panelGrid>
                             </div>
                         </div>
@@ -40,34 +40,39 @@
                             <p:panelGrid columns="4" styleClass="border:none;">
 
                                 <h:outputText value="Id:" />
-                                <h:outputText value="" />
+                                <h:outputText value="#{p.id}" />
                                 <h:outputText value="Name:" />
-                                <h:outputText value="" />
+                                <h:outputText value="#{p.name}" />
 
                                 <h:outputText value="Email: " />
-                                <h:outputText value="" />
+                                <h:outputText value="#{p.email}"/>
 
                                 <h:outputText value="Phone: " />
-                                <h:outputText value="" />
+                                <h:outputText value="#{p.phone}" />
 
                                 <h:outputText value="Gender: " />
-                                <h:outputText value="" />
+                                <h:outputText value="#{p.gender}"/>
 
                                 <h:outputText value="Date:  " />
-                                <h:outputText value="" />
+                                <h:outputText value="#{p.date}" />
                             </p:panelGrid>
                         </p:panel>
                         <p:panel id="basic" header="Medicine Detailes"  style="margin-bottom:20px">
                             <p:panelGrid columns="2" styleClass="border:none;">
                                 <p:outputLabel value="Medicine Name"/>
                                 <p:outputLabel value="Rules"/>
-                                <p:outputLabel value="Medicine Name"/>
-                                <p:outputLabel value="Rules"/>
+                                <p:outputLabel value="#{p.mdcn1}"/>
+                                <p:outputLabel value="#{p.rule1}"/>
                             </p:panelGrid>
-                        </p:panel>                 
+                        </p:panel>
+                            </c:forEach>
                     </p:panel>
                 </div>
             </div>
+            
+            <ui:insert name = "footer" >
+                <ui:include src = "footer.xhtml" />
+            </ui:insert> 
         </div>
     </h:body>
 </html>

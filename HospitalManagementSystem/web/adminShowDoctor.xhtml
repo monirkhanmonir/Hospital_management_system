@@ -22,7 +22,7 @@
 
 
                     <h:form>
-                        
+
                         <p:dataTable var="doctor" value="#{doctorBean.showDoctor()}" rows="10"
                                      paginator="true"
                                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
@@ -60,7 +60,9 @@
                     </h:form>
                 </div>
             </div>
-
+            <ui:insert name = "footer" >
+                <ui:include src = "footer.xhtml" />
+            </ui:insert> 
 
         </div>
 

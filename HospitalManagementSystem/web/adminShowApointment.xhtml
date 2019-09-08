@@ -22,7 +22,7 @@
 
 
                     <h:form>
-                        
+
                         <p:dataTable var="app" value="#{apointment.showApointment()}" rows="10"
                                      paginator="true"
                                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
@@ -55,7 +55,7 @@
                                 <h:outputText value="#{app.drName}" />
                             </p:column>
                             <p:column headerText="Delete">
-                               
+
                                 <p:commandButton value="Delet" action="#{apointment.deleteApo(app)}"/>
                             </p:column>
                             <f:facet name="paginatorTopLeft">
@@ -70,6 +70,9 @@
                 </div>
             </div>
 
+            <ui:insert name = "footer" >
+                <ui:include src = "footer.xhtml" />
+            </ui:insert> 
 
         </div>
 

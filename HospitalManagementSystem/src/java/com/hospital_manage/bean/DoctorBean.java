@@ -48,7 +48,7 @@ public class DoctorBean {
     
     @Transient
      private List<DoctorBean> list;
-    
+   
     
 
     public String getName() {
@@ -114,6 +114,8 @@ public class DoctorBean {
     public void setList(List<DoctorBean> list) {
         this.list = list;
     }
+    
+      
 
     public String saveDoctor(DoctorBean doctor) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
@@ -233,6 +235,7 @@ public class DoctorBean {
                         this.setEmail(a.getEmail());
                         this.setPhone(a.getPhone());
                         this.setGender(a.getGender());
+                       
                         
                         result = "doctorPanel.xhtml?faces-redirect=true";
                     } else {
@@ -274,6 +277,8 @@ public class DoctorBean {
         }
         return null;
     }
+
+  
     
     
     

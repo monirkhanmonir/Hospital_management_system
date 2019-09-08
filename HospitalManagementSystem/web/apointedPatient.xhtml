@@ -15,12 +15,13 @@
             <ui:insert name = "header" >
                 <ui:include src = "doctorHead.xhtml" />
             </ui:insert> 
+
             <div class="row">
                 <div class="col-md-12">
                     <p:panel id="basic" header="Patirnt Stattus" footer="Movie Details" style="margin-bottom:20px">
                         <h:form>
-                            
-                        
+
+
                             <div class="jumbotron jumbotron-fluid">
                                 <div class="container">
                                     <p:panelGrid columns="4" styleClass="border:none;">
@@ -57,30 +58,34 @@
                                     <h:outputText value="Date:  " />
                                     <h:outputText value="#{apointment.date}" />
                                 </p:panelGrid>
-                               
+
 
                             </p:panel>
-                            
+
                             <p:panel id="basic" header="Medicine Detailes"  style="margin-bottom:20px">
                                 <p:panelGrid columns="2" styleClass="border:none;">
                                     <p:outputLabel value="Medicine Name"/>
-                                            <p:outputLabel value="Rules"/>
-                                            <p:inputText value="#{patient.mdcn1}" />                                          
-                                            <p:inputMask  mask="9-9-9" value="#{patient.rule1}"/>
-                                             <p:commandButton value="Save" styleClass=" offset-md-9" action="#{patient.saveData(patient)}"/>
-                                     
+                                    <p:outputLabel value="Rules"/>
+                                    <p:inputText value="#{patient.mdcn1}" />                                          
+                                    <p:inputMask  mask="9-9-9" value="#{patient.rule1}"/>
+                                    <p:commandButton value="Save" styleClass=" offset-md-9" action="#{patient.saveData(patient, doctorBean, apointment)}" />
+
                                 </p:panelGrid>
                             </p:panel>
-                        
-                             
-                            
-                            </h:form>
+
+
+
+                        </h:form>
                     </p:panel>
 
 
 
                 </div>
             </div>
+
+            <ui:insert name = "footer" >
+                <ui:include src = "footer.xhtml" />
+            </ui:insert> 
         </div>
     </h:body>
 </html>

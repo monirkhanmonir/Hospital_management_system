@@ -67,7 +67,7 @@
                 </div>
                 <dir class="col-md-12">
                     <div class="jumbotron">
-                       
+
                     </div>
                 </dir>
 
@@ -96,7 +96,7 @@
                                                 </td>
                                                 <td>
                                                     <p:commandButton value="Search" action="#{doctorBean.findDoctor(doctorBean.specialist)}"/>
-                                                   
+
                                                 </td>
                                             </tr>
                                         </table>
@@ -121,14 +121,20 @@
 
 
 
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Fluid jumbotron</h1>
+                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                </div>
+            </div>
+
+            <ui:insert name = "footer" >
+                <ui:include src = "footer.xhtml" />
+            </ui:insert> 
+
 
         </div>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Fluid jumbotron</h1>
-                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-            </div>
-        </div>
+
 
     </h:body>
 </html>
