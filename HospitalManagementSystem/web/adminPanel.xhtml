@@ -6,11 +6,12 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <div class="container">
+        <div class="container-fluid" style="border: 1px solid #ccc">
+
             <ui:insert name = "header" >
                 <ui:include src = "adminHead.xhtml" />
             </ui:insert> 
@@ -19,79 +20,83 @@
 
             <div class="row">
                 <div class="offset-md-2 col-md-8">
-                    <h:form>
-                        <h1>Doctor Registration Form</h1>
-                        <p:growl id="growl" showDetail="true" sticky="true" />
-                        <table>
-                            <tr>
-                                <td>
-                                    Name: 
-                                </td>
-                                <td><p:inputText type="text" value="#{doctorBean.name}" styleClass="form-control"/> </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Email: 
-                                </td>
-                                <td><p:inputText type="email" value="#{doctorBean.email}"  styleClass="form-control"/> </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Password: 
-                                </td>
-                                <td><p:inputText type="email" value="#{doctorBean.psd}" styleClass="form-control"/> </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Contact Number: 
-                                </td>
-                                <td><p:inputText type="number" value="#{doctorBean.phone}"/> </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Gender: 
-                                </td>
-                                <td>
-                                    <p:selectOneRadio id="console" value="#{doctorBean.gender}" >
-                                        <f:selectItem itemLabel="Male" itemValue="Male" />
-                                        <f:selectItem itemLabel="Female" itemValue="Female" />
-                                        <f:selectItem itemLabel="Other" itemValue="Other" />
-                                    </p:selectOneRadio>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Speciality:
-                                </td>
-                                <td>
-                                    <p:selectOneMenu value="#{doctorBean.specialist}"  styleClass="form-control">
-                                        <f:selectItem itemLabel="GASTROENTEROLOGY " itemValue="GASTROENTEROLOGY " />
-                                        <f:selectItem itemLabel="SURGERY" itemValue="SURGERY" />
-                                        <f:selectItem itemLabel="PSYCHIATRY" itemValue="PSYCHIATRY" />
-                                        <f:selectItem itemLabel="MEDICINE" itemValue="MEDICINE" /> 
-                                        <f:selectItem itemLabel="DENTISTRY" itemValue="DENTISTRY" />
-                                        <f:selectItem itemLabel="ANAESTHESIOLOGY" itemValue="ANAESTHESIOLOGY" />
-                                    </p:selectOneMenu>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Adout Doctor:
-                                </td>
-                                <td>
-                                    <p:inputTextarea rows="4" cols="30" counter="display" maxlength="100" counterTemplate="{0} characters remaining." autoResize="false" value="#{doctorBean.msg}"/>
-                                    <h:outputText id="display" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><p:commandButton value="submit" styleClass="btn-success" action="#{doctorBean.saveDoctor(doctorBean)}" update="growl"/>
-                                    <p:commandButton value="resest" styleClass="btn-success" action="#{doctorBean.clear()}"/>
-                                </td>
-                            </tr>
-                        </table>
+                    <p:panel header="Doctor Registration Form">
 
-                    </h:form>
+
+                        <h:form>
+
+                            <p:growl id="growl" showDetail="true" sticky="true" />
+                            <table>
+                                <tr>
+                                    <td>
+                                        Name: 
+                                    </td>
+                                    <td><p:inputText type="text" value="#{doctorBean.name}" styleClass="form-control"/> </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Email: 
+                                    </td>
+                                    <td><p:inputText type="email" value="#{doctorBean.email}"  styleClass="form-control"/> </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Password: 
+                                    </td>
+                                    <td><p:inputText type="email" value="#{doctorBean.psd}" styleClass="form-control"/> </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Contact Number: 
+                                    </td>
+                                    <td><p:inputText type="number" value="#{doctorBean.phone}"/> </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Gender: 
+                                    </td>
+                                    <td>
+                                        <p:selectOneRadio id="console" value="#{doctorBean.gender}" >
+                                            <f:selectItem itemLabel="Male" itemValue="Male" />
+                                            <f:selectItem itemLabel="Female" itemValue="Female" />
+                                            <f:selectItem itemLabel="Other" itemValue="Other" />
+                                        </p:selectOneRadio>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Speciality:
+                                    </td>
+                                    <td>
+                                        <p:selectOneMenu value="#{doctorBean.specialist}"  styleClass="form-control">
+                                            <f:selectItem itemLabel="GASTROENTEROLOGY " itemValue="GASTROENTEROLOGY " />
+                                            <f:selectItem itemLabel="SURGERY" itemValue="SURGERY" />
+                                            <f:selectItem itemLabel="PSYCHIATRY" itemValue="PSYCHIATRY" />
+                                            <f:selectItem itemLabel="MEDICINE" itemValue="MEDICINE" /> 
+                                            <f:selectItem itemLabel="DENTISTRY" itemValue="DENTISTRY" />
+                                            <f:selectItem itemLabel="ANAESTHESIOLOGY" itemValue="ANAESTHESIOLOGY" />
+                                        </p:selectOneMenu>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Adout Doctor:
+                                    </td>
+                                    <td>
+                                        <p:inputTextarea rows="4" cols="30" counter="display" maxlength="100" counterTemplate="{0} characters remaining." autoResize="false" value="#{doctorBean.msg}"/>
+                                        <h:outputText id="display" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><p:commandButton value="submit" styleClass="btn-success" action="#{doctorBean.saveDoctor(doctorBean)}" update="growl"/>
+                                        <p:commandButton value="resest" styleClass="btn-success" action="#{doctorBean.clear()}"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </h:form>
+                    </p:panel>
                 </div>
             </div>
 
@@ -99,7 +104,7 @@
                 <ui:include src = "footer.xhtml" />
             </ui:insert> 
         </div>
-        admin  page
+
     </h:body>
 </html>
 

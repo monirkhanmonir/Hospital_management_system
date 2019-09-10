@@ -8,6 +8,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import javax.faces.bean.ViewScoped;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -58,7 +60,29 @@ public class Patient {
     @Column(name = "date")
     private Date date;
     
+    @Column(name = "mdcn2")
+    private String mdcn2;
     
+    @Column(name = "rule2")
+    private String rule2;
+    
+    @Column(name = "mdcn3")
+    private String mdcn3;
+    
+    @Column(name = "rule3")
+    private String rule3;
+    
+    @Column(name = "mdcn4")
+    private String mdcn4;
+    
+    @Column(name = "rule4")
+    private String rule4;
+    
+    @Column(name = "mdcn5")
+    private String mdcn5;
+    
+    @Column(name = "rule5")
+    private String rule5;
     
     
     
@@ -190,6 +214,71 @@ public class Patient {
     public void setDate(Date date) {
         this.date = date;
     }
+    
+    
+    public String getMdcn2() {
+        return mdcn2;
+    }
+
+    public void setMdcn2(String mdcn2) {
+        this.mdcn2 = mdcn2;
+    }
+
+    public String getRule2() {
+        return rule2;
+    }
+
+    public void setRule2(String rule2) {
+        this.rule2 = rule2;
+    }
+
+    public String getMdcn3() {
+        return mdcn3;
+    }
+
+    public void setMdcn3(String mdcn3) {
+        this.mdcn3 = mdcn3;
+    }
+
+    public String getRule3() {
+        return rule3;
+    }
+
+    public void setRule3(String rule3) {
+        this.rule3 = rule3;
+    }
+
+    public String getMdcn4() {
+        return mdcn4;
+    }
+
+    public void setMdcn4(String mdcn4) {
+        this.mdcn4 = mdcn4;
+    }
+
+    public String getRule4() {
+        return rule4;
+    }
+
+    public void setRule4(String rule4) {
+        this.rule4 = rule4;
+    }
+
+    public String getMdcn5() {
+        return mdcn5;
+    }
+
+    public void setMdcn5(String mdcn5) {
+        this.mdcn5 = mdcn5;
+    }
+
+    public String getRule5() {
+        return rule5;
+    }
+
+    public void setRule5(String rule5) {
+        this.rule5 = rule5;
+    }
 
     
 
@@ -240,6 +329,8 @@ public class Patient {
 
         return null;
     }
+
+    
 
     
 

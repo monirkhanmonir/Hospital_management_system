@@ -8,10 +8,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
     </h:head>
     <h:body>
-        <div class="container">
+        <div class="container-fluid" style="border: 1px solid #ccc">
+
             <ui:insert name = "header" >
                 <ui:include src = "doctorHead.xhtml" />
             </ui:insert> 
@@ -68,6 +69,14 @@
                                     <p:outputLabel value="Rules"/>
                                     <p:inputText value="#{patient.mdcn1}" />                                          
                                     <p:inputMask  mask="9-9-9" value="#{patient.rule1}"/>
+                                    <p:inputText value="#{patient.mdcn2}" />                                          
+                                    <p:inputMask  mask="9-9-9" value="#{patient.rule2}"/>
+                                     <p:inputText value="#{patient.mdcn3}" />                                          
+                                    <p:inputMask  mask="9-9-9" value="#{patient.rule3}"/>
+                                     <p:inputText value="#{patient.mdcn4}" />                                          
+                                    <p:inputMask  mask="9-9-9" value="#{patient.rule4}"/>
+                                     <p:inputText value="#{patient.mdcn5}" />                                          
+                                    <p:inputMask  mask="9-9-9" value="#{patient.rule5}"/>
                                     <p:commandButton value="Save" styleClass=" offset-md-9" action="#{patient.saveData(patient, doctorBean, apointment)}" />
 
                                 </p:panelGrid>

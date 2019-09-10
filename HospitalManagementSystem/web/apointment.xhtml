@@ -7,11 +7,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
-
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
     </h:head>
     <h:body>
-        <div class="container">
+        <div class="container-fluid" style="border: 1px solid #ccc">
+
             <ui:insert name = "header" >
                 <ui:include src = "indxHead.xhtml" />
             </ui:insert>
@@ -34,7 +34,7 @@
                                         <label for="dr-phone">Phone:</label>
                                         <p:inputText styleClass="form-control" readonly="true" value="#{apointment.drPhone}" id="dr-phone"/>
                                     </div>
-                                    
+
                                     <p:inputText  value="#{apointment.drEmail}" readonly="true"/>
                                 </div>
 
@@ -105,7 +105,7 @@
                                             <p:outputLabel value="#{apointment.drPhone}"/>                                           
                                         </p:panelGrid>
                                     </p:panel>
-                                    
+
                                     <p:panel header="Patient Information">
                                         <p:panelGrid columns="2">
                                             <p:outputLabel value="Patient Id:"/>
@@ -116,7 +116,7 @@
                                             <p:outputLabel value="#{apointment.email}"/>
                                             <p:outputLabel value="Date:"/>
                                             <p:outputLabel value="#{apointment.date}"/>
-                                            
+
                                         </p:panelGrid>
                                     </p:panel>
                                 </p:dialog>
@@ -126,6 +126,9 @@
                     </h:form>
                 </div>
             </div>
+             <ui:insert name = "footer" >
+                <ui:include src = "footer.xhtml" />
+            </ui:insert> 
         </div>
     </h:body>
 </html>

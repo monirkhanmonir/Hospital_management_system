@@ -8,27 +8,34 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
     </h:head>
     <h:body>
-        <div class="container">
+        <div class="container-fluid" style="border: 1px solid #ccc">
+
             <ui:insert name = "header" >
                 <ui:include src = "doctorHead.xhtml" />
             </ui:insert> 
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Doctor panel</h2>
-                    <p:outputLabel value="Doctor Name: "/>
-                    <p:outputLabel value="#{doctorBean.name}"/><br></br>
-                    <p:outputLabel value="Doctor Email: "/>
-                    <p:outputLabel value="#{doctorBean.email}"/><br></br>
-                    <p:outputLabel value="Phone Number"/>
-                    <p:outputLabel value="#{doctorBean.phone}"/>
+                    <p:panel header="Doctor Profile">
+                        <p:outputLabel value="Doctor Name: "/>
+                        <p:outputLabel value="#{doctorBean.name}"/><br></br>
+                        <p:outputLabel value="Doctor Email: "/>
+                        <p:outputLabel value="#{doctorBean.email}"/><br></br>
+                        <p:outputLabel value="Phone Number"/>
+                        <p:outputLabel value="#{doctorBean.phone}"/>
+                    </p:panel>
+
+
                 </div>
             </div>
+            <ui:insert name = "footer" >
+                <ui:include src = "footer.xhtml" />
+            </ui:insert> 
         </div>
 
-        
+
     </h:body>
 </html>
 

@@ -9,67 +9,78 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
     </h:head>
     <h:body>
-        <div class="container">
+        <div class="container-fluid" style="border: 1px solid #ccc">
+
             <ui:insert name = "header" >
-                <ui:include src = "doctorHead.xhtml" />
+                <ui:include src = "indxHead.xhtml" />
             </ui:insert> 
             <div class="row">
                 <div class="col-md-12">
                     <p:panel id="basic" header="Patirnt Stattus" footer="Movie Details" style="margin-bottom:20px">
                         <c:forEach var="p" items="#{patient.patientList}">
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container">
-                                <p:panelGrid columns="4" styleClass="border:none;">
-                                    <h:outputText value="Name:" />
-                                    <h:outputText value="#{p.drName}" />
-                                    <h:outputText value="Email: " />
-                                    <h:outputText value="#{p.drEmail}" />
-                                    <h:outputText value="Phone: " />
-                                    <h:outputText value="#{p.drPhone}" />
-                                    <h:outputText value="Gender:  " />
-                                    <h:outputText value="#{p.drGender}" />
-                                </p:panelGrid>
+                            <div class="jumbotron jumbotron-fluid">
+                                <div class="container">
+                                    <p:panelGrid columns="4" styleClass="border:none;">
+                                        <h:outputText value="Name:" />
+                                        <h:outputText value="#{p.drName}" />
+                                        <h:outputText value="Email: " />
+                                        <h:outputText value="#{p.drEmail}" />
+                                        <h:outputText value="Phone: " />
+                                        <h:outputText value="#{p.drPhone}" />
+                                        <h:outputText value="Gender:  " />
+                                        <h:outputText value="#{p.drGender}" />
+                                    </p:panelGrid>
+                                </div>
                             </div>
-                        </div>
 
-                        <p:panel id="basic1" header="Patient Personal Information"  style="margin-bottom:20px">
+                            <p:panel id="basic1" header="Patient Personal Information"  style="margin-bottom:20px">
 
-                            <p:panelGrid columns="4" styleClass="border:none;">
+                                <p:panelGrid columns="4" styleClass="border:none;">
 
-                                <h:outputText value="Id:" />
-                                <h:outputText value="#{p.id}" />
-                                <h:outputText value="Name:" />
-                                <h:outputText value="#{p.name}" />
+                                    <h:outputText value="Id:" />
+                                    <h:outputText value="#{p.id}" />
+                                    <h:outputText value="Name:" />
+                                    <h:outputText value="#{p.name}" />
 
-                                <h:outputText value="Email: " />
-                                <h:outputText value="#{p.email}"/>
+                                    <h:outputText value="Email: " />
+                                    <h:outputText value="#{p.email}"/>
 
-                                <h:outputText value="Phone: " />
-                                <h:outputText value="#{p.phone}" />
+                                    <h:outputText value="Phone: " />
+                                    <h:outputText value="#{p.phone}" />
 
-                                <h:outputText value="Gender: " />
-                                <h:outputText value="#{p.gender}"/>
+                                    <h:outputText value="Gender: " />
+                                    <h:outputText value="#{p.gender}"/>
 
-                                <h:outputText value="Date:  " />
-                                <h:outputText value="#{p.date}" />
-                            </p:panelGrid>
-                        </p:panel>
-                        <p:panel id="basic" header="Medicine Detailes"  style="margin-bottom:20px">
-                            <p:panelGrid columns="2" styleClass="border:none;">
-                                <p:outputLabel value="Medicine Name"/>
-                                <p:outputLabel value="Rules"/>
-                                <p:outputLabel value="#{p.mdcn1}"/>
-                                <p:outputLabel value="#{p.rule1}"/>
-                            </p:panelGrid>
-                        </p:panel>
-                            </c:forEach>
+                                    <h:outputText value="Date:  " />
+                                    <h:outputText value="#{p.date}" />
+                                </p:panelGrid>
+                            </p:panel>
+                            <p:panel id="basic" header="Medicine Detailes"  style="margin-bottom:20px">
+                                <div class="offset-md-3 col-md-6">
+                                    <p:panelGrid columns="2" styleClass="border:none;">
+                                        <p:outputLabel value="Medicine Name"/>
+                                        <p:outputLabel value="Rules"/>
+                                        <p:outputLabel value="#{p.mdcn1}"/>
+                                        <p:outputLabel value="#{p.rule1}"/>
+                                        <p:outputLabel value="#{p.mdcn2}"/>
+                                        <p:outputLabel value="#{p.rule2}"/>
+                                        <p:outputLabel value="#{p.mdcn3}"/>
+                                        <p:outputLabel value="#{p.rule3}"/>
+                                        <p:outputLabel value="#{p.mdcn4}"/>
+                                        <p:outputLabel value="#{p.rule4}"/>
+                                        <p:outputLabel value="#{p.mdcn5}"/>
+                                        <p:outputLabel value="#{p.rule5}"/>
+                                    </p:panelGrid>
+                                </div>
+                            </p:panel>
+                        </c:forEach>
                     </p:panel>
                 </div>
             </div>
-            
+
             <ui:insert name = "footer" >
                 <ui:include src = "footer.xhtml" />
             </ui:insert> 

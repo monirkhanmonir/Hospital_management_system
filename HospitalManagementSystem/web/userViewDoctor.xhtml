@@ -8,8 +8,8 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
-        <style>
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
+       <style>
             .card-margin{
                 margin: 25px 10px;
 
@@ -17,7 +17,8 @@
         </style>
     </h:head>
     <h:body>
-        <div class="container">
+        <div class="container-fluid" style="border: 1px solid #ccc">
+
 
             <ui:insert name = "header" >
                 <ui:include src = "indxHead.xhtml" />

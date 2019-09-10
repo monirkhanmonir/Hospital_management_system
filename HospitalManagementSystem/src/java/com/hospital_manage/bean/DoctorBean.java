@@ -133,7 +133,7 @@ public class DoctorBean {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Successful", "Insert Succesfull"));
 
-        return null;
+        return "adminShowDoctor";
     }
 
     public List<DoctorBean> showDoctor() {
@@ -203,7 +203,7 @@ public class DoctorBean {
         return null;
     }
 
-    public void clear() {
+    public String clear() {
         this.setEmail("");
         this.setGender("");
         this.setMsg("");
@@ -211,6 +211,8 @@ public class DoctorBean {
         this.setPhone(0);
         this.setSpecialist("");
         this.setPsd("");
+        
+        return "adminPanel";
     }
 
     public String checkUser1(String email, String psd) {

@@ -8,18 +8,37 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <div class="container">
+        <div class="container-fluid" style="border: 1px solid #ccc">
+
             <ui:insert name = "header" >
                 <ui:include src = "indxHead.xhtml" />
             </ui:insert> 
-            
-            AboutUS  page
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <h2>Best Practices for Hospital Website Content</h2>
+                            <p>One of the most popular uses of the internet is to search for health information – and it’s 
+                                more than just
+                                patients searching WebMD to self-diagnose their latest ailment.  Patients who are looking
+                                for a provider heavily use online resources to help with their decision-making process. By 
+                                applying best practices for hospital website content, your
+                                online presence can provide the information patients need during a critical time in their 
+                                decision-making process. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
             <ui:insert name = "footer" >
                 <ui:include src = "footer.xhtml" />
             </ui:insert> 
         </div>
-        
+
     </h:body>
 </html>
 

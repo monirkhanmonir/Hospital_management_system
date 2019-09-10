@@ -6,28 +6,34 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <div class="container">
+        <div class="container-fluid" style="border: 1px solid #ccc">
+
             <ui:insert name = "header" >
                 <ui:include src = "adminHead.xhtml" />
             </ui:insert> 
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="">
-                        
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <h1 class="display-4">Admin Profile Empty</h1>
+
+                        </div>
                     </div>
                 </div>
             </div>
 
-            
 
 
+            <ui:insert name = "footer" >
+                <ui:include src = "footer.xhtml" />
+            </ui:insert> 
         </div>
-        admin  page
+
     </h:body>
 </html>
 
