@@ -329,6 +329,12 @@ public class Patient {
 
         return null;
     }
+	
+	
+	public String add(){
+		
+		return null;
+	}
 
     
 
