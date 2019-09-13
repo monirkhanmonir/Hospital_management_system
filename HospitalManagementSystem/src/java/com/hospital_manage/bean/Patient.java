@@ -302,7 +302,12 @@ public class Patient {
             ts = session.beginTransaction();
             session.saveOrUpdate(patient);
             ts.commit();
+            
+            apointment.deleteApo1(apointment);
+            
             session.flush();
+            
+            
             
         } catch (Exception e) {
             ts.rollback();
@@ -333,7 +338,7 @@ public class Patient {
 	
 	public String add(){
 		
-		return null;
+		return "index";
 	}
 
     

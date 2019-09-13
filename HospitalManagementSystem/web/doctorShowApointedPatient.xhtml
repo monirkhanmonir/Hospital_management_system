@@ -16,7 +16,7 @@
             </ui:insert> 
             <div class="row">
                 <div class="col-md-12">
-                    <p:dataTable var="patients" value="#{apointment.showApointment()}">
+                    <p:dataTable var="patients" value="#{apointment.showApointment(doctorBean.email)}">
                         <p:column headerText="Id">
                             <h:outputText value="#{patients.id}" />
                         </p:column>

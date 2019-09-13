@@ -14,6 +14,8 @@
         <mapping class = "com.hospital_manage.bean.DoctorBean"/>
         <mapping class = "com.hospital_manage.bean.Apointment"/>
         <mapping class="com.hospital_manage.bean.Patient"/>
+         <mapping class="com.hospital_manage.bean.Massage"/>
+        
         
     </session-factory>
 </hibernate-configuration>

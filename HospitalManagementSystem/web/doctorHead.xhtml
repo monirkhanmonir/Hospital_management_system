@@ -34,11 +34,11 @@
 
                 </div>
 
-                <form class="form-inline">
-                    <p:spinner placeholder="input patient id" styleClass="form-control"/>
-                    <p:commandButton value="Search" styleClass="btn btn-outline-success my-2 my-sm-0"/>
+                <h:form class="form-inline">
+                    <p:spinner placeholder="input patient id" styleClass="form-control" value="#{patient.id}"/>
+                    <p:commandButton value="Search" styleClass="btn btn-outline-success my-2 my-sm-0" action="#{patient.add()}"/>
                     
-                </form>
+                </h:form>
 
             </nav>
 

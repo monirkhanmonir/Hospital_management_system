@@ -240,12 +240,13 @@ public class Apointment {
         return "apointedPatient";
     }
 
-    public List<Apointment> showApointment() {
+    public List<Apointment> showApointment(String drEmail) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
         try {
             ts = session.beginTransaction();
-            Query query = session.createQuery("FROM Apointment");
+            Query query = session.createQuery("FROM Apointment where drEmail=:drEmail");
+            query.setString("drEmail", drEmail);
             List<Apointment> list = query.list();
             ts.commit();
             return list;
@@ -261,9 +262,7 @@ public class Apointment {
     public String deleteApo(Apointment apointment) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction ts = null;
-
         try {
-
             ts = session.beginTransaction();
             session.delete(apointment);
             ts.commit();
@@ -276,7 +275,21 @@ public class Apointment {
         return null;
     }
 
-   
+   public String deleteApo1(Apointment apointment) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction ts = null;
+        try {
+            ts = session.beginTransaction();
+            session.delete(apointment);
+            ts.commit();
+            return "doctorShowApointedPatient.xhtml";
+        } catch (Exception e) {
+            ts.rollback();
+        } finally {
+            session.flush();
+        }
+        return null;
+    }
 
     
 
